@@ -1,8 +1,8 @@
 {
   "name": "jodit-react",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
   "keywords": [
     "react",
@@ -31,8 +31,9 @@
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "newversion": "npm test && npm version patch --no-git-tag-version && npm run github && npm publish ./",
+    "newversion": "rm -rf build/ && npm build && npm version patch --no-git-tag-version && npm run github && npm publish ./",
     "demo": "cd examples && webpack && webpack-dev-server --port 4000",
+    "build": "webpack",
     "github": "git add --all  && git commit -m \"New version %npm_package_version%. Read more https://github.com/xdan/jodit/releases/tag/%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
   },
   "repository": {
