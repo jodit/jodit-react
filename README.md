@@ -34,6 +34,9 @@ http://localhost:4000/
 
 ```jsx
 import React from 'react';
+
+import 'jodit';
+import 'jodit/build/jodit.min.css';
 import JoditEditor from "jodit-react";
 
 class Example  extends Component {

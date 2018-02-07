@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
     entry: './src/index.js',
-
+    devtool: "inline-source-map",
     module: {
         rules: [
             {
@@ -40,10 +40,10 @@ module.exports = {
                 NODE_ENV: JSON.stringify('production'),
             },
         }),
-        new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
     ],
     externals: {
+        jodit: 'jodit',
         react: {
             root: 'React',
             commonjs2: 'react',
