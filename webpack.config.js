@@ -30,6 +30,13 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, '/build/'),
-        filename: 'bundle.js'
+        filename: 'jodit-react.js',
+        library: 'JoditEditor',
+        libraryTarget: 'umd'
+    },
+
+    externals: {
+        react: 'react',
+        'react-dom': 'react-dom'
     }
 };
