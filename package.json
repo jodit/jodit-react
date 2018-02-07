@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "index.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
