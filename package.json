@@ -1,0 +1,37 @@
+{
+  "name": "jodit-react",
+  "version": "1.0.1",
+  "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
+  "main": "index.js",
+  "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
+  "keywords": [
+    "react",
+    "jodit",
+    "html",
+    "text",
+    "editor",
+    "wysisyg",
+    "rich editor",
+    "rich text editor",
+    "rte"
+  ],
+  "dependencies": {
+    "jodit": "^3.0.0"
+  },
+  "devDependencies": {
+    "react": "^15.0.0"
+  },
+  "scripts": {
+    "newversion": "npm test && npm version patch --no-git-tag-version && npm run github && npm publish ./",
+    "github": "git add --all  && git commit -m \"New version %npm_package_version%. Read more https://github.com/xdan/jodit/releases/tag/%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jodit/jodit-react.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jodit/jodit-react/issues"
+  },
+  "homepage": "https://github.com/froala/react-froala-wysiwyg#readme"
+}
