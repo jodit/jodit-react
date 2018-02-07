@@ -34,7 +34,13 @@ import ReactDOM from 'react-dom';
 
 import JoditEditor from "../src/JoditEditor";
 
-ReactDOM.render(<JoditEditor tag='textarea'/>, document.getElementById('editor'));
+ReactDOM.render(&lt;JoditEditor
+  value={"test"}
+  config={{
+    readonly: false // all options from https://xdsoft.net/jodit/doc/
+  }}
+  onChange={console.log}
+/>, document.getElementById('editor'));
         </pre>
     </div>
     <div class="result">

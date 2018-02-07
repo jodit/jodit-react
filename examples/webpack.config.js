@@ -1,15 +1,14 @@
-var webpack = require("webpack");
 var path = require('path');
 
 module.exports = {
     entry: './app.js',
-
+    devtool: "eval",
     module: {
         rules: [
             {
                 test: /\.js$/,
                 use: [
-                    'babel-loader'
+                    'babel-loader',
                 ]
             },
             {
@@ -24,12 +23,16 @@ module.exports = {
 
     resolve: {
         alias: {
-            "jodit-react": '../src'
+            "jodit-react": '../src/'
         },
     },
 
     output: {
         path: path.join(__dirname, '/build/'),
         filename: 'app.js'
+    },
+
+    devServer:{
+        contentBase: './'
     }
 };

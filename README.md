@@ -23,6 +23,11 @@ npm install --dev
 npm run demo
 ```
 
+and open
+```
+http://localhost:4000/
+```
+
 ## Usage
 
 ### 1. Require and use Jodit component inside your application.
