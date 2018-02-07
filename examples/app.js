@@ -5,12 +5,7 @@ import ReactDOM from 'react-dom';
 
 import 'jodit';
 import 'jodit/build/jodit.min.css';
-import JoditEditor from "jodit-react";
+import From from "./components/From";
 
-ReactDOM.render(<JoditEditor
-  value={"test"}
-  config={{
-    readonly: false
-  }}
-  onChange={console.log}
-/>, document.getElementById('editor'));
+
+ReactDOM.render(<From/>, document.getElementById('editor'));

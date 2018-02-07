@@ -9,6 +9,7 @@ export default class JoditEditor extends Component {
      * @type Jodit
      */
     editor;
+    oldConfig = {};
 
     constructor(props) {
         super(props);
@@ -18,6 +19,8 @@ export default class JoditEditor extends Component {
             config: props.config || {},
             onChange: props.onChange
         };
+
+        this.oldConfig = this.state.config;
     }
 
     changeListener = (value) => {
@@ -28,13 +31,31 @@ export default class JoditEditor extends Component {
     };
 
     componentDidMount () {
-        this.editor = new Jodit(this.refs.element, this.state.config);
+        this.createEditor();
+    }
+
+    createEditor() {
+        this.editor && this.editor.destruct();
+        this.editor = new Jodit(this.refs.element, this.props.config);
         this.editor.value = this.state.value;
         this.editor.events.on('change', this.changeListener);
     }
 
     componentWillUnmount () {
         this.editor && this.editor.destruct();
+    }
+
+    componentDidUpdate () {
+        if (this.oldConfig !== this.props.config) {
+            this.oldConfig = this.props.config;
+            this.createEditor();
+        }
+
+        if (JSON.stringify(this.editor.value) === JSON.stringify(this.props.value)) {
+            return;
+        }
+
+        this.editor.value = this.props.value;
     }
 
     render() {
