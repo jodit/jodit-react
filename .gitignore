@@ -1,3 +1,5 @@
 .gitignore
 .idea/
 /node_modules/
+/package-lock.json
+/examples/build/

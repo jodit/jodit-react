@@ -17,6 +17,12 @@ npm install jodit-react --save
 npm update jodit-react
 ```
 
+## Run demo
+```bash
+npm install --dev 
+npm run demo
+```
+
 ## Usage
 
 ### 1. Require and use Jodit component inside your application.
