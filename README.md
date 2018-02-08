@@ -52,8 +52,20 @@ class Example  extends Component {
     }
 
     render() {
-        return <JoditEditor value={this.state.content} onChange={this.updateContent.bind(this)} />
+        return (
+            <JoditEditor
+                value={this.state.content}
+                config={{
+                    readonly: false // all options from https://xdsoft.net/jodit/doc/
+                }}
+                onChange={this.updateContent.bind(this)}
+            />
+        );
     }
 }
 ```
 
+
+License
+-----
+This package is available under `MIT` License.
