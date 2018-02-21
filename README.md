@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dm/jodit-react.svg)](https://www.npmjs.com/package/jodit-react)
 [![npm](https://img.shields.io/npm/l/jodit-react.svg)](https://www.npmjs.com/package/jodit-react)
 
-React wrapper for Jodit
+React wrapper for [Jodit](https://xdsoft.net/jodit/)
 
 ## Installation
 
