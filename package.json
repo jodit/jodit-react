@@ -16,6 +16,7 @@
     "rte"
   ],
   "dependencies": {
+    "@types/react": "^16.3.14",
     "jodit": "^3.1.31"
   },
   "peerDependencies": {
