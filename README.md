@@ -47,18 +47,25 @@ class Example  extends Component {
         }
     }
 
-    updateContent(value) {
+    updateContent = (value) => {
         this.setState({content:value})
     }
-
+    /**
+     * @property Jodit jodit instance of native Jodit
+     */
+	jodit;
+	setRef = jodit => this.jodit = jodit;
+	
+	config = {
+		readonly: false // all options from https://xdsoft.net/jodit/doc/
+	}
     render() {
         return (
             <JoditEditor
+            	editorRef={this.setRef}
                 value={this.state.content}
-                config={{
-                    readonly: false // all options from https://xdsoft.net/jodit/doc/
-                }}
-                onChange={this.updateContent.bind(this)}
+                config={this.config}
+                onChange={this.updateContent}
             />
         );
     }

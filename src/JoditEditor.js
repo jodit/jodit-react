@@ -37,6 +37,11 @@ export default class JoditEditor extends Component {
     createEditor() {
         this.editor && this.editor.destruct();
         this.editor = new Jodit(this.refs.element, this.props.config);
+
+        if (this.props.editorRef && typeof this.props.editorRef === 'function') {
+            this.props.editorRef(this.editor);
+        }
+
         this.editor.value = this.state.value;
         this.editor.events.on('change', this.changeListener);
     }
