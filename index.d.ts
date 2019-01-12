@@ -6,7 +6,7 @@ export interface JoditProps {
     config: any;
 }
 
-export class JoditEditor extends React.Component<JoditProps, any> {
+export default class JoditEditor extends React.Component<JoditProps, any> {
     constructor(props: JoditProps, context: any);
     render(): JSX.Element;
 }

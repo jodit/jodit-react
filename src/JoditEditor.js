@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Jodit from 'jodit'
+import { Jodit } from 'jodit'
 
 export default class JoditEditor extends Component {
     /**
