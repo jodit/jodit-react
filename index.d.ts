@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface JoditProps {
-    content: string;
+    value: string;
     onChange(value: string): void;
     config: any;
 }
