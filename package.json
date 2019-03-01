@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@types/react": "^16.8.2",
-    "jodit": "^3.2.37"
+    "jodit": "^3.2.38-emsofix"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15.0.0 || ^16.0.0",
