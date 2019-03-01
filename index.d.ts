@@ -1,7 +1,9 @@
 import * as React from "react";
+import {IJodit} from "jodit";
 
 export interface JoditProps {
     value: string;
+    editorRef: (editor: IJodit) => void;
     onChange(value: string): void;
     config: any;
 }

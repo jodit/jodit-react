@@ -34,9 +34,13 @@ export default class JoditEditor extends Component {
         this.createEditor();
     }
 
+    setElementRef = (ref) => {
+        this.element = ref;
+    };
+
     createEditor() {
         this.editor && this.editor.destruct();
-        this.editor = new Jodit(this.refs.element, this.props.config);
+        this.editor = new Jodit(this.element, this.props.config);
 
         if (this.props.editorRef && typeof this.props.editorRef === 'function') {
             this.props.editorRef(this.editor);
@@ -64,6 +68,6 @@ export default class JoditEditor extends Component {
     }
 
     render() {
-        return <textarea ref="element"></textarea>
+        return <textarea ref={this.setElementRef}></textarea>
     }
 }
