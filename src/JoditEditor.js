@@ -28,6 +28,9 @@ export default class JoditEditor extends Component {
         if (typeof this.state.onChange === 'function') {
             this.state.onChange(value);
         }
+        if (typeof this.state.onBlur === 'function') {
+            this.state.onChange(value);
+        }
     };
 
     componentDidMount () {
@@ -44,6 +47,7 @@ export default class JoditEditor extends Component {
 
         this.editor.value = this.state.value;
         this.editor.events.on('change', this.changeListener);
+         this.editor.events.on('blur', this.changeListener);
     }
 
     componentWillUnmount () {
