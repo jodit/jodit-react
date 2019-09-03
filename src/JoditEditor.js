@@ -1,69 +1,52 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react'
+import PropTypes from 'prop-types'
 import Jodit from 'jodit'
+import 'jodit/build/jodit.min.css'
 
-export default class JoditEditor extends Component {
-    /**
-     *Jodit editor
-     *
-     * @name JoditEditor#editor
-     * @type Jodit
-     */
-    editor;
-    oldConfig = {};
+const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, ref) => {
+  const textArea = useRef(null)
 
-    constructor(props) {
-        super(props);
+  useLayoutEffect(() => {
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(textArea.current)
+      } else {
+        ref.current = textArea.current
+      }
+    }
+  }, [textArea])
 
-        this.state = {
-            value: props.value || '',
-            config: props.config || {},
-            onChange: props.onChange
-        };
-
-        this.oldConfig = this.state.config;
+  useEffect(() => {
+    const blurHandler = value => {
+      onBlur && onBlur(value)
     }
 
-    changeListener = (value) => {
-        this.state.value = value;
-        if (typeof this.state.onChange === 'function') {
-            this.state.onChange(value);
-        }
-    };
-
-    componentDidMount () {
-        this.createEditor();
+    const changeHandler = value => {
+      onChange && onChange(value)
     }
 
-    createEditor() {
-        this.editor && this.editor.destruct();
-        this.editor = new Jodit(this.refs.element, this.props.config);
-
-        if (this.props.editorRef && typeof this.props.editorRef === 'function') {
-            this.props.editorRef(this.editor);
-        }
-
-        this.editor.value = this.state.value;
-        this.editor.events.on('change', this.changeListener);
+    const editor = new Jodit(textArea.current, config)
+    editor.value = value
+    editor.events.on('blur', () => blurHandler(editor.value))
+    editor.events.on('change', () => changeHandler(editor.value))
+    editor.workplace.tabIndex = tabIndex || -1
+    editor.workplace.onfocus = () => {
+      editor.selection.focus()
     }
 
-    componentWillUnmount () {
-        this.editor && this.editor.destruct();
+    return () => {
+      editor.destruct()
     }
+  }, [])
 
-    componentDidUpdate () {
-        if (this.oldConfig !== this.props.config) {
-            this.oldConfig = this.props.config;
-            this.createEditor();
-        }
+  return <textarea ref={textArea} tabIndex={tabIndex}></textarea>
+})
 
-        if (JSON.stringify(this.editor.value) === JSON.stringify(this.props.value)) {
-            return;
-        }
-
-        this.editor.value = this.props.value;
-    }
-
-    render() {
-        return <textarea ref="element"></textarea>
-    }
+JoditEditor.propTypes = {
+  value: PropTypes.string,
+  config: PropTypes.object,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func
 }
+
+export default JoditEditor
