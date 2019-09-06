@@ -30,45 +30,30 @@ http://localhost:4000/
 
 ## Usage
 
-### 1. Require and use Jodit component inside your application.
+### 1. Require and use Jodit-react component inside your application.
 
 ```jsx
-import React from 'react';
-
-import 'jodit';
-import 'jodit/build/jodit.min.css';
+import React, {useState} from 'react';
 import JoditEditor from "jodit-react";
 
-class Example  extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        	content: 'content',
-        }
-    }
-
-    updateContent = (value) => {
-        this.setState({content:value})
-    }
-    /**
-     * @property Jodit jodit instance of native Jodit
-     */
-	jodit;
-	setRef = jodit => this.jodit = jodit;
+cosnt Example = ({}) => {
+	const editor = useRef(null)
+	cosnt [content, setContent] = useState('')
 	
-	config = {
+	const config = {
 		readonly: false // all options from https://xdsoft.net/jodit/doc/
 	}
-    render() {
-        return (
+	
+	return (
             <JoditEditor
-            	editorRef={this.setRef}
-                value={this.state.content}
-                config={this.config}
-                onChange={this.updateContent}
+            	ref={editor}
+                value={content}
+                config={config}
+		tabIndex={1} // tabIndex of textarea
+		onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                onChange={newContent => setContent(newContent)}
             />
         );
-    }
 }
 ```
 
