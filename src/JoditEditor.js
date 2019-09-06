@@ -25,21 +25,24 @@ const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, r
       onChange && onChange(value)
     }
 
-    const editor = new Jodit(textArea.current, config)
-    editor.value = value
-    editor.events.on('blur', () => blurHandler(editor.value))
-    editor.events.on('change', () => changeHandler(editor.value))
-    editor.workplace.tabIndex = tabIndex || -1
-    editor.workplace.onfocus = () => {
-      editor.selection.focus()
-    }
+    textArea.current = new Jodit(textArea.current, customConfig)
+    textArea.current.value = value
+    textArea.current.events.on('blur', () => blurHandler(textArea.current.value))
+    textArea.current.events.on('change', () => changeHandler(textArea.current.value))
+    textArea.current.workplace.tabIndex = tabIndex || -1
 
     return () => {
-      editor.destruct()
+      textArea.current.destruct()
     }
   }, [])
+  
+  useEffect(() => {
+    if (textArea && textArea.current) {
+      textArea.current.value = value
+    }
+  }, [textArea, value])
 
-  return <textarea ref={textArea} tabIndex={tabIndex}></textarea>
+  return <textarea ref={textArea}></textarea>
 })
 
 JoditEditor.propTypes = {
