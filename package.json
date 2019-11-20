@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -30,11 +30,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "style-loader": "^0.20.3",
     "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3"
+    "webpack-dev-server": "^2.11.5"
   },
   "scripts": {
     "newversion": "npm update && rm -rf build/ && npm run build && npm version patch --no-git-tag-version && npm run github && npm publish ./",
