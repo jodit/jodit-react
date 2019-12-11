@@ -25,7 +25,7 @@ const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, r
       onChange && onChange(value)
     }
 
-    textArea.current = new Jodit(textArea.current, customConfig)
+    textArea.current = new Jodit(textArea.current)
     textArea.current.value = value
     textArea.current.events.on('blur', () => blurHandler(textArea.current.value))
     textArea.current.events.on('change', () => changeHandler(textArea.current.value))
