@@ -7,8 +7,10 @@ export default class From extends Component {
         config: {
             readonly: false,
         },
-        value: 'Test'
+        value: 'Test',
+        spin: 1
     };
+
     toggleReadOnly = () => {
         this.setState(prevState => {
             let config = {
@@ -21,12 +23,22 @@ export default class From extends Component {
             }
         });
     };
+
     onChangeInput = () => {
         this.setState(prevState => ({
             config: prevState.config,
             value: this.refs.input.value
         }));
     };
+
+    spin = () => {
+        this.setState(prevState => ({
+            config: prevState.config,
+            value: prevState.value,
+            spin: prevState.spin + 1
+        }));
+    };
+
     render () {
         return <div>
             <JoditEditor
@@ -36,6 +48,7 @@ export default class From extends Component {
             />
             <input placeholder={"entre some text"} ref="input" type="text" onChange={this.onChangeInput}/>
             <button type="button" onClick={this.toggleReadOnly}>Toggle Read-Only</button>
+            <button type="button" onClick={this.spin}>Spin {this.state.spin}</button>
         </div>
     };
 }
