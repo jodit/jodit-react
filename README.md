@@ -38,7 +38,7 @@ import JoditEditor from "jodit-react";
 
 cosnt Example = ({}) => {
 	const editor = useRef(null)
-	cosnt [content, setContent] = useState('')
+	const [content, setContent] = useState('')
 	
 	const config = {
 		readonly: false // all options from https://xdsoft.net/jodit/doc/
