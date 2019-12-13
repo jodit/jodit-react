@@ -5,6 +5,7 @@ declare module 'jodit-react' {
         value: string,
         config?: object,
         onChange: (newValue: string) => void;
+        onBlur: (newValue: string) => void;
     }
     const JoditEditor: React.ComponentType<IJoditEditorProps>
     export default JoditEditor;
