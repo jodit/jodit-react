@@ -36,7 +36,7 @@ http://localhost:4000/
 import React, {useState, useRef} from 'react';
 import JoditEditor from "jodit-react";
 
-cosnt Example = ({}) => {
+const Example = ({}) => {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
 	
