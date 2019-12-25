@@ -33,7 +33,7 @@ http://localhost:4000/
 ### 1. Require and use Jodit-react component inside your application.
 
 ```jsx
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import JoditEditor from "jodit-react";
 
 cosnt Example = ({}) => {
