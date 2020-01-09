@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Jodit from 'jodit'
 import 'jodit/build/jodit.min.css'
 
-const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex}, ref) => {
+const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name}, ref) => {
 	const textArea = useRef(null);
 
 	useLayoutEffect(() => {
@@ -44,7 +44,7 @@ const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex}, ref
 		}
 	}, [textArea, value]);
 
-	return <textarea ref={textArea}></textarea>
+	return <textarea ref={textArea} name={name}></textarea>
 });
 
 JoditEditor.propTypes = {
