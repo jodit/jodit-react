@@ -33,10 +33,10 @@ http://localhost:4000/
 ### 1. Require and use Jodit-react component inside your application.
 
 ```jsx
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import JoditEditor from "jodit-react";
 
-cosnt Example = ({}) => {
+const Example = ({}) => {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
 	
@@ -51,7 +51,7 @@ cosnt Example = ({}) => {
                 config={config}
 		tabIndex={1} // tabIndex of textarea
 		onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={newContent => setContent(newContent)}
+                onChange={newContent => {}}
             />
         );
 }
