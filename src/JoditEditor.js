@@ -25,7 +25,8 @@ const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name
 			onChange && onChange(value)
 		};
 
-		textArea.current = new Jodit(textArea.current, config);
+		const element = textArea.current;
+		textArea.current = Jodit.make(element, config);
 
 		textArea.current.value = value;
 		textArea.current.events.on('blur', () => blurHandler(textArea.current.value));
@@ -34,7 +35,7 @@ const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name
 
 		return () => {
 			textArea.current.destruct();
-      textArea.current = textArea.current.element;
+      textArea.current = element;
 		}
 	}, [config]);
 

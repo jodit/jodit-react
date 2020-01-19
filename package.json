@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@types/react": "^16.9.17",
-    "jodit": "^3.3.15"
+    "jodit": "^3.3.17"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15.0.0 || ^16.0.0",

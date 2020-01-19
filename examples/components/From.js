@@ -6,14 +6,30 @@ export default class From extends Component {
     state = {
         config: {
             readonly: false,
+            toolbar: true,
         },
         value: 'Test',
         spin: 1
     };
 
+    toggleToolbar = () => {
+        this.setState(prevState => {
+            let config = {
+                readonly: prevState.config.readonly,
+                toolbar: !prevState.config.toolbar
+            };
+
+            return {
+                config: config,
+                value: prevState.value
+            }
+        });
+    };
+
     toggleReadOnly = () => {
         this.setState(prevState => {
             let config = {
+                toolbar: prevState.config.toolbar,
                 readonly: !prevState.config.readonly
             };
 
@@ -48,6 +64,7 @@ export default class From extends Component {
             />
             <input placeholder={"entre some text"} ref="input" type="text" onChange={this.onChangeInput}/>
             <button type="button" onClick={this.toggleReadOnly}>Toggle Read-Only</button>
+            <button type="button" onClick={this.toggleToolbar}>Toggle Toolbar</button>
             <button type="button" onClick={this.spin}>Spin {this.state.spin}</button>
         </div>
     };
