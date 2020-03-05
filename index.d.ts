@@ -5,7 +5,7 @@ export interface JoditProps {
     value: string;
     onChange?: (value: string) => void;
     onBlur?: (value: string) => void;
-    config: IJodit['options'];
+    config?: IJodit['options'];
 }
 
 export default class JoditEditor extends React.Component<JoditProps, any> {
