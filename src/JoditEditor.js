@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, forwardRef, useLayoutEffect} from 'react'
 import PropTypes from 'prop-types'
-import Jodit from 'jodit'
+import {Jodit} from 'jodit'
 import 'jodit/build/jodit.min.css'
 
 const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name}, ref) => {
@@ -50,7 +50,7 @@ const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name
 
 JoditEditor.propTypes = {
 	value: PropTypes.string,
-  tabIndex: PropTypes.number,
+	tabIndex: PropTypes.number,
 	config: PropTypes.object,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func
