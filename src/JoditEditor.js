@@ -16,7 +16,7 @@ const JoditEditor = forwardRef(({value, config, onChange, onBlur, tabIndex, name
 		}
 	}, [textArea]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const blurHandler = value => {
 			onBlur && onBlur(value)
 		};
