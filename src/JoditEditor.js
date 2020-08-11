@@ -12,6 +12,7 @@ const JoditEditor = forwardRef((props, ref) => {
         onChange,
         tabIndex,
         value,
+        editorRef
     } = props
 
     const textArea = useRef(null)
@@ -37,6 +38,10 @@ const JoditEditor = forwardRef((props, ref) => {
 
         if (id) element.id = id
         if (name) element.name = name
+
+        if (typeof editorRef === 'function') {
+            editorRef(textArea.current)
+        }
 
         return () => {
             textArea.current.destruct()
