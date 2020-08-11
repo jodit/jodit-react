@@ -66,6 +66,7 @@ JoditEditor.propTypes = {
     name: string,
     onBlur: func,
     onChange: func,
+    editorRef: func,
     tabIndex: number,
     value: string,
 }
