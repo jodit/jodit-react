@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -16,17 +16,17 @@
     "rte"
   ],
   "dependencies": {
-    "jodit": "^3.4.23"
+    "jodit": "^3.4.24"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15.0.0 || ^16.0.0",
     "react-dom": "~0.14 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
-    "@types/react": "^16.9.46",
+    "@types/react": "^16.9.49",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
