@@ -1,5 +1,5 @@
 {
   "presets": ["env", "react"],
-  "plugins": ["transform-class-properties"]
-   "ignore": ["node_modules"]
+  "plugins": ["transform-class-properties"],
+  "ignore": ["node_modules"]
 }

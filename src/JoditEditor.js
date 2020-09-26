@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
-import Jodit from 'jodit'
+import {Jodit} from 'jodit'
 import 'jodit/build/jodit.min.css'
 
 const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, ref) => {
@@ -25,10 +25,10 @@ const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, r
       onChange && onChange(value)
     }
 
-    textArea.current = new Jodit(textArea.current, customConfig)
+    textArea.current = new Jodit(textArea.current, config)
     textArea.current.value = value
-    textArea.current.events.on('blur', () => blurHandler(textArea.current.value))
-    textArea.current.events.on('change', () => changeHandler(textArea.current.value))
+    textArea.current.events.on('blur', (e) => blurHandler(textArea.current.value, e))
+    textArea.current.events.on('change', (e) => changeHandler(textArea.current.value, e))
     textArea.current.workplace.tabIndex = tabIndex || -1
 
     return () => {
