@@ -28,6 +28,10 @@ const From = () => {
 		}))
 	)
 
+	const handleBlurAreaChange = () => {
+		console.log('Blur')
+	};
+
 	const handleTextAreaChange = newTextAreaValue => {
 		console.log('handleTextAreaChange', newTextAreaValue)
 		return (
@@ -48,6 +52,7 @@ const From = () => {
 			<JoditEditor
 				config={config}
 				onChange={handleTextAreaChange}
+				onBlur={handleBlurAreaChange}
 				value={textAreaValue}/>
 			<input
 				onChange={handleInputChange}
