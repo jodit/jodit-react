@@ -1,55 +1,73 @@
 import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react'
-import PropTypes from 'prop-types'
-import {Jodit} from 'jodit'
+import { func, number, object, string } from 'prop-types'
+import { Jodit } from 'jodit'
 import 'jodit/build/jodit.min.css'
 
-const JoditEditor = forwardRef(({ value, config, onChange, onBlur, tabIndex }, ref) => {
-  const textArea = useRef(null)
+const JoditEditor = forwardRef(({
+        config,
+        id,
+        name,
+        onBlur,
+        onChange,
+        tabIndex,
+        value,
+        editorRef
+    }, ref) => {
 
-  useLayoutEffect(() => {
-    if (ref) {
-      if (typeof ref === 'function') {
-        ref(textArea.current)
-      } else {
-        ref.current = textArea.current
-      }
-    }
-  }, [textArea])
+    const textArea = useRef(null)
 
-  useEffect(() => {
-    const blurHandler = value => {
-      onBlur && onBlur(value)
-    }
+    useLayoutEffect(() => {
+        if (ref) {
+            if (typeof ref === 'function') {
+                ref(textArea.current)
+            } else {
+                ref.current = textArea.current
+            }
+        }
+    }, [textArea])
 
-    const changeHandler = value => {
-      onChange && onChange(value)
-    }
+    useEffect(() => {
+        const element = textArea.current
+        textArea.current = Jodit.make(element, config)
+        textArea.current.workplace.tabIndex = tabIndex || -1
 
-    textArea.current = new Jodit(textArea.current, config)
-    textArea.current.value = value
-    textArea.current.events.on('blur', (e) => blurHandler(textArea.current.value, e))
-    textArea.current.events.on('change', (e) => changeHandler(textArea.current.value, e))
-    textArea.current.workplace.tabIndex = tabIndex || -1
+        // adding event handlers
+        textArea.current.events.on('blur', value => onBlur && onBlur(value))
+        textArea.current.events.on('change', value => onChange && onChange(value))
 
-    return () => {
-      textArea.current.destruct()
-    }
-  }, [])
-  
-  useEffect(() => {
-    if (textArea && textArea.current) {
-      textArea.current.value = value
-    }
-  }, [textArea, value])
+        if (id) element.id = id
+        if (name) element.name = name
 
-  return <textarea ref={textArea}></textarea>
+        if (typeof editorRef === 'function') {
+            editorRef(textArea.current)
+        }
+
+        return () => {
+            textArea.current.destruct()
+            textArea.current = element
+        }
+    }, [config])
+
+    useEffect(() => {
+        if (textArea?.current?.value !== value) {
+            textArea.current.value = value
+        }
+    }, [value])
+
+    return (
+        <textarea ref={textArea} />
+    )
 })
 
 JoditEditor.propTypes = {
-  value: PropTypes.string,
-  config: PropTypes.object,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func
+    config: object,
+    id: string,
+    name: string,
+    onBlur: func,
+    onChange: func,
+    editorRef: func,
+    tabIndex: number,
+    value: string,
 }
 
 export default JoditEditor

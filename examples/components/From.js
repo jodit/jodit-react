@@ -1,52 +1,76 @@
-import React, { Component } from "react";
+import React, { useRef, useState } from 'react';
 
 import JoditEditor from "../../src/";
 
-export default class From extends Component {
-  state = {
-    config: {
-      readonly: false,
-    },
-    value: "Test",
-  };
-  toggleReadOnly = () => {
-    this.setState((prevState) => {
-      let config = {
-        readonly: !prevState.config.readonly,
-      };
+const From = () => {
+    const [config, setConfig] = useState({
+        readonly: false,
+        toolbar: true,
+    })
 
-      return {
-        config: config,
-        value: prevState.value,
-      };
-    });
-  };
-  onChangeInput = () => {
-    this.setState((prevState) => ({
-      config: prevState.config,
-      value: this.refs.input.value,
-    }));
-  };
+    const [textAreaValue, setTextAreaValue] = useState('Test')
 
-  render() {
+    const [inputValue, setInputValue] = useState('')
+
+    const [spin, setSpin] = useState(1)
+
+    const toggleToolbar = () => (
+        setConfig(config => ({
+            ...config,
+            toolbar: !config.toolbar,
+        }))
+    )
+
+    const toggleReadOnly = () => (
+        setConfig(config => ({
+            ...config,
+            readonly: !config.readonly,
+        }))
+    )
+
+    const handleTextAreaChange = newTextAreaValue => {
+        console.log('handleTextAreaChange', newTextAreaValue)
+        return (
+        setTextAreaValue(() => newTextAreaValue)
+    )}
+
+    const handleInputChange = e => {
+        const { value } = e.target
+        setInputValue(() => value)
+        handleTextAreaChange(value)
+    }
+
+    const handleSpin = () => setSpin(spin => ++spin)
+
     return (
-      <div>
-        <JoditEditor
-          value={this.state.value}
-          config={this.state.config}
-          onChange={console.log}
-          onBlur={console.log}
-        />
-        <input
-          placeholder={"entre some text"}
-          ref="input"
-          type="text"
-          onChange={this.onChangeInput}
-        />
-        <button type="button" onClick={this.toggleReadOnly}>
-          Toggle Read-Only
-        </button>
-      </div>
-    );
-  }
+        <div>
+            <JoditEditor
+                config={config}
+                onChange={handleTextAreaChange}
+                onBlur={console.log}
+                value={textAreaValue} />
+            <input
+                onChange={handleInputChange}
+                placeholder={"enter some text"}
+                type={"text"}
+                value={inputValue} />
+            <button
+                onClick={toggleReadOnly}
+                type={"button"}>
+                {'Toggle Read-Only'}
+            </button>
+            <button
+                onClick={toggleToolbar}
+                type={"button"}>
+                {'Toggle Toolbar'}
+            </button>
+            <button
+                type={"button"}
+                onClick={handleSpin}>
+                {`Spin ${spin}`}
+            </button>
+        </div>
+    )
 }
+
+export default From

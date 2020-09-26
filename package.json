@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "1.0.26",
+  "version": "1.0.63",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -16,31 +16,34 @@
     "rte"
   ],
   "dependencies": {
-    "@types/react": "^16.8.7",
-    "jodit": "^3.2.55"
+    "jodit": "^3.4.26"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15.0.0 || ^16.0.0",
     "react-dom": "~0.14 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@types/react": "^16.9.49",
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "css-loader": "^3.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^0.20.3",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
     "newversion": "npm update && rm -rf build/ && npm run build && npm version patch --no-git-tag-version && npm run github && npm publish ./",
-    "demo": "cd examples && webpack-dev-server --port 4000 --hot --inline",
-    "build": "webpack",
-    "github": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/xdan/jodit/releases/tag/$npm_package_version \" && git tag $npm_package_version && git push --tags origin HEAD:master"
+    "demo": "cd examples && export NODE_ENV=development && webpack-dev-server --config ./webpack.config.js --mode development --port 4000 --hot --inline",
+    "build": "export NODE_ENV=production && webpack --mode production",
+    "github": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version && git push --tags origin HEAD:master"
   },
   "repository": {
     "type": "git",
