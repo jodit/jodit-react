@@ -28,8 +28,8 @@ const From = () => {
 		}))
 	)
 
-	const handleBlurAreaChange = () => {
-		console.log('Blur')
+	const handleBlurAreaChange = (textAreaValue, event) => {
+		console.log('handleBlurAreaChange', textAreaValue, event)
 	};
 
 	const handleTextAreaChange = newTextAreaValue => {
