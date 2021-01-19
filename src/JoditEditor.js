@@ -11,7 +11,6 @@ const JoditEditor = forwardRef((props, ref) => {
 		onBlur,
 		onChange,
 		tabIndex,
-		value,
 		editorRef
 	} = props
 
@@ -48,12 +47,6 @@ const JoditEditor = forwardRef((props, ref) => {
 			textArea.current = element
 		}
 	}, [config])
-
-	useEffect(() => {
-		if (textArea?.current?.value !== value) {
-			textArea.current.value = value
-		}
-	}, [value])
 
 	return (
 		<textarea ref={textArea} />
