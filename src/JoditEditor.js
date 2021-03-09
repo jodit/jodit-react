@@ -32,10 +32,6 @@ const JoditEditor = forwardRef((props, ref) => {
 		textArea.current = Jodit.make(element, config)
 		textArea.current.workplace.tabIndex = tabIndex || -1
 
-		// adding event handlers
-		textArea.current.events.on('blur', value => onBlur && onBlur(value))
-		textArea.current.events.on('change', value => onChange && onChange(value))
-
 		if (id) element.id = id
 		if (name) element.name = name
 
@@ -48,6 +44,12 @@ const JoditEditor = forwardRef((props, ref) => {
 			textArea.current = element
 		}
 	}, [config])
+	
+	useEffect(() => {
+		// adding event handlers
+		textArea.current.events.on('blur', value => onBlur && onBlur(value))
+		textArea.current.events.on('change', value => onChange && onChange(value))
+	}, [onBlur, onChange])
 
 	useEffect(() => {
 		if (textArea?.current?.value !== value) {
