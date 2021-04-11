@@ -3,19 +3,17 @@ import { func, number, object, string } from 'prop-types'
 import { Jodit } from 'jodit'
 import 'jodit/build/jodit.min.css'
 
-const JoditEditor = forwardRef((props, ref) => {
-	const {
-		config,
-		id,
-		name,
-		onBlur,
-		onChange,
-		tabIndex,
-		value,
-		editorRef
-	} = props
-
-	const textArea = useRef(null)
+const JoditEditor = forwardRef(({
+	config,
+	id,
+	name,
+	onBlur,
+	onChange,
+	tabIndex,
+	value,
+	editorRef
+}, ref) => {
+	const textArea = useRef()
 
 	useLayoutEffect(() => {
 		if (ref) {
@@ -33,7 +31,7 @@ const JoditEditor = forwardRef((props, ref) => {
 		textArea.current.workplace.tabIndex = tabIndex || -1
 
 		// adding event handlers
-		textArea.current.events.on('blur', value => onBlur && onBlur(value))
+		textArea.current.events.on('blur', (e) => onBlur && onBlur(e.target.innerHTML, e))
 		textArea.current.events.on('change', value => onChange && onChange(value))
 
 		if (id) element.id = id
