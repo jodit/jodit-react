@@ -36,7 +36,7 @@ module.exports = (env, argv, dir = process.cwd()) => {
 		},
 
 		output: {
-			path: path.join(__dirname, '/build/'),
+			path: path.join(dir, '/build/'),
 			filename: 'jodit-react.js',
 			library: 'JoditEditor',
 			libraryTarget: 'umd'
