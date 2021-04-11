@@ -14,9 +14,10 @@ module.exports = (env, argv, dir = process.cwd()) => {
 			rules: [
 				{
 					test: /\.js$/,
-					use: [
-						'babel-loader'
-					]
+					use: {
+						loader: 'babel-loader',
+						options: require(path.join(__dirname, './babel.config.json'))
+					}
 				},
 				{
 					test: /\.css$/,
