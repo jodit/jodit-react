@@ -16,7 +16,7 @@ module.exports = (env, argv, dir = process.cwd()) => {
 					test: /\.js$/,
 					use: {
 						loader: 'babel-loader',
-						options: require(path.join(__dirname, './babel.config.json'))
+						options: require(path.join(dir, './babel.config.json'))
 					}
 				},
 				{
