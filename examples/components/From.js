@@ -34,6 +34,7 @@ const From = () => {
 
 	const handleTextAreaChange = newTextAreaValue => {
 		console.log('handleTextAreaChange', newTextAreaValue)
+
 		return (
 			setTextAreaValue(() => newTextAreaValue)
 		)
@@ -53,22 +54,28 @@ const From = () => {
 				config={config}
 				onChange={handleTextAreaChange}
 				onBlur={handleBlurAreaChange}
-				value={textAreaValue}/>
+				value={textAreaValue}
+			/>
+
 			<input
 				onChange={handleInputChange}
 				placeholder={"enter some text"}
 				type={"text"}
-				value={inputValue}/>
+				value={inputValue}
+			/>
+
 			<button
 				onClick={toggleReadOnly}
 				type={"button"}>
 				{'Toggle Read-Only'}
 			</button>
+
 			<button
 				onClick={toggleToolbar}
 				type={"button"}>
 				{'Toggle Toolbar'}
 			</button>
+
 			<button
 				type={"button"}
 				onClick={handleSpin}>

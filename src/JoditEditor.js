@@ -30,7 +30,7 @@ const JoditEditor = forwardRef(({
 		textArea.current.workplace.tabIndex = tabIndex || -1
 
 		// adding event handlers
-		textArea.current.events.on('blur', (e) => onBlur && onBlur(e.target.innerHTML, e))
+		textArea.current.events.on('blur', (e) => onBlur && onBlur(textArea.current.value, e))
 		textArea.current.events.on('change', value => onChange && onChange(value))
 
 		if (id) element.id = id
@@ -44,6 +44,7 @@ const JoditEditor = forwardRef(({
 			if(textArea?.current){
 				textArea.current.destruct()
 			}
+
 			textArea.current = element
 		}
 	}, [config])
