@@ -50,7 +50,7 @@ const JoditEditor = forwardRef(({
 	}, [config])
 
 	useEffect(() => {
-		if (textArea?.current?.value !== value) {
+		if (textArea?.current?.value !== value && value !== '') {
 			textArea.current.value = value
 		}
 	}, [value])
