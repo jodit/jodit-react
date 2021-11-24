@@ -6,6 +6,8 @@
 
 React wrapper for [Jodit](https://xdsoft.net/jodit/)
 
+> [Jodit React PRO](https://xdsoft.net/jodit/pro/) it is an extended version of Jodit React with the same API, but with a lot more features.
+
 ## Installation
 
 ```bash
@@ -19,7 +21,7 @@ npm update jodit-react
 
 ## Run demo
 ```bash
-npm install --dev 
+npm install --dev
 npm run demo
 ```
 
@@ -39,11 +41,11 @@ import JoditEditor from "jodit-react";
 const Example = ({}) => {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
-	
+
 	const config = {
 		readonly: false // all options from https://xdsoft.net/jodit/doc/
 	}
-	
+
 	return (
             <JoditEditor
             	ref={editor}
