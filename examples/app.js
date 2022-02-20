@@ -5,6 +5,6 @@ import ReactDOM from 'react-dom';
 
 import 'jodit';
 import 'jodit/build/jodit.min.css';
-import From from "./components/From";
+import Form from './components/Form';
 
-ReactDOM.render(<From/>, document.getElementById('editor'));
+ReactDOM.render(<Form />, document.getElementById('editor'));
