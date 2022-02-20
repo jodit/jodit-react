@@ -61,16 +61,16 @@
 	"bugs": {
 		"url": "https://github.com/jodit/jodit-react/issues"
 	},
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint ./ --fix",
-      "git add"
-    ]
-  },
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/*.js": [
+			"eslint ./ --fix",
+			"git add"
+		]
+	},
 	"homepage": "https://xdsoft.net/jodit/"
 }
