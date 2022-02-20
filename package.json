@@ -50,6 +50,7 @@
 	"scripts": {
 		"newversion": "npm update && rm -rf build/ && npm run build && npm version patch --no-git-tag-version && npm run github && npm publish ./",
 		"demo": "cd examples && export NODE_ENV=development && webpack-dev-server --config ./webpack.config.js --mode development --port 4000 --hot --inline",
+		"start": "npm run demo",
 		"build": "export NODE_ENV=production && webpack --mode production",
 		"github": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version && git push --tags origin HEAD:master"
 	},
