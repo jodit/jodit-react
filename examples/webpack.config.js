@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
 	entry: './app.js',
-	devtool: "eval",
+	devtool: 'eval',
 	module: {
 		rules: [
 			{
@@ -12,8 +12,8 @@ module.exports = {
 						loader: 'babel-loader',
 						options: {
 							presets: [
-								"@babel/preset-env",
-								"@babel/preset-react"
+								'@babel/preset-env',
+								'@babel/preset-react'
 							]
 						}
 					}
@@ -21,11 +21,8 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					'style-loader',
-					'css-loader'
-				],
-			},
+				use: ['style-loader', 'css-loader']
+			}
 		]
 	},
 

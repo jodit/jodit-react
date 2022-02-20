@@ -1,4 +1,4 @@
-const webpack = require("webpack");
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = (env, argv, dir = process.cwd()) => {
@@ -21,18 +21,15 @@ module.exports = (env, argv, dir = process.cwd()) => {
 				},
 				{
 					test: /\.css$/,
-					use: [
-						'style-loader',
-						'css-loader'
-					],
-				},
+					use: ['style-loader', 'css-loader']
+				}
 			]
 		},
 
 		resolve: {
 			alias: {
-				"jodit-react": path.join(__dirname, './src')
-			},
+				'jodit-react': path.join(__dirname, './src')
+			}
 		},
 
 		output: {
@@ -45,10 +42,12 @@ module.exports = (env, argv, dir = process.cwd()) => {
 		plugins: [
 			new webpack.DefinePlugin({
 				'process.env': {
-					NODE_ENV: JSON.stringify(debug ? 'development' : 'production'),
-				},
+					NODE_ENV: JSON.stringify(
+						debug ? 'development' : 'production'
+					)
+				}
 			}),
-			new webpack.optimize.ModuleConcatenationPlugin(),
+			new webpack.optimize.ModuleConcatenationPlugin()
 		],
 
 		externals: {
@@ -67,5 +66,5 @@ module.exports = (env, argv, dir = process.cwd()) => {
 				amd: 'react-dom'
 			}
 		}
-	}
+	};
 };
