@@ -1,4 +1,4 @@
-import { Jodit } from 'jodit'
-import 'jodit/build/jodit.min.css'
+import { Jodit } from 'jodit';
+import 'jodit/build/jodit.min.css';
 
-export {Jodit};
+export { Jodit };

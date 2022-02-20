@@ -1,64 +1,76 @@
-import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react'
-import { func, number, object, string } from 'prop-types'
-import { Jodit } from './include.jodit'
+import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react';
+import { func, number, object, string } from 'prop-types';
+import { Jodit } from './include.jodit';
+const { isFunction } = Jodit.modules.Helpers;
 
-const JoditEditor = forwardRef(({
-	config,
-	id,
-	name,
-	onBlur,
-	onChange,
-	tabIndex,
-	value,
-	editorRef
-}, ref) => {
-	const textArea = useRef()
+const JoditEditor = forwardRef(
+	(
+		{ config, id, name, onBlur, onChange, tabIndex, value, editorRef },
+		ref
+	) => {
+		const textArea = useRef();
 
-	useLayoutEffect(() => {
-		if (ref) {
-			if (typeof ref === 'function') {
-				ref(textArea.current)
-			} else {
-				ref.current = textArea.current
+		useLayoutEffect(() => {
+			if (ref) {
+				if (isFunction(ref)) {
+					ref(textArea.current);
+				} else {
+					ref.current = textArea.current;
+				}
 			}
-		}
-	}, [textArea])
+		}, [textArea]);
 
-	useEffect(() => {
-		const element = textArea.current
-		textArea.current = Jodit.make(element, config)
-		textArea.current.workplace.tabIndex = tabIndex || -1
+		useEffect(() => {
+			const element = textArea.current;
+			textArea.current = Jodit.make(element, config);
+			textArea.current.workplace.tabIndex = tabIndex || -1;
 
-		// adding event handlers
-		textArea.current.events.on('blur', (e) => onBlur && onBlur(textArea.current.value, e))
-		textArea.current.events.on('change', value => onChange && onChange(value))
+			// adding event handlers
+			textArea.current.events.on(
+				'blur',
+				e => onBlur && onBlur(textArea.current.value, e)
+			);
+			textArea.current.events.on(
+				'change',
+				value => onChange && onChange(value)
+			);
 
-		if (id) element.id = id
-		if (name) element.name = name
-
-		if (typeof editorRef === 'function') {
-			editorRef(textArea.current)
-		}
-
-		return () => {
-			if(textArea?.current){
-				textArea.current.destruct()
+			if (id) {
+				element.id = id;
 			}
 
-			textArea.current = element
-		}
-	}, [config])
+			if (name) {
+				element.name = name;
+			}
 
-	useEffect(() => {
-		if (textArea?.current?.value !== value) {
-			textArea.current.value = value
-		}
-	}, [value])
+			if (isFunction(editorRef)) {
+				editorRef(textArea.current);
+			}
 
-	return (
-		<textarea ref={textArea} />
-	)
-})
+			return () => {
+				if (textArea?.current) {
+					textArea.current.destruct();
+				}
+
+				textArea.current = element;
+			};
+		}, [config]);
+
+		useEffect(() => {
+			if (textArea?.current?.value !== value) {
+				textArea.current.value = value;
+			}
+		}, [value]);
+
+		return (
+			<div className={'jodit-react-container'}>
+				<textarea ref={textArea} />
+			</div>
+		);
+	}
+);
+
+JoditEditor.displayName = 'JoditEditor';
 
 JoditEditor.propTypes = {
 	config: object,
@@ -68,7 +80,7 @@ JoditEditor.propTypes = {
 	onChange: func,
 	editorRef: func,
 	tabIndex: number,
-	value: string,
-}
+	value: string
+};
 
-export default JoditEditor
+export default JoditEditor;
