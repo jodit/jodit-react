@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IJodit } from "jodit";
+import { IJodit } from "jodit/types";
 
 export interface JoditProps {
 	value: string;
