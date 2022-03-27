@@ -35,16 +35,17 @@ http://localhost:4000/
 ### 1. Require and use Jodit-react component inside your application.
 
 ```jsx
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useMemo} from 'react';
 import JoditEditor from "jodit-react";
 
-const Example = ({}) => {
+const Example = ({placeholder}) => {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
 
-	const config = {
-		readonly: false // all options from https://xdsoft.net/jodit/doc/
-	}
+	const config = useMemo({
+		readonly: false // all options from https://xdsoft.net/jodit/doc/,
+		placeholder: placeholder || 'Start typings...'
+	}, [placeholder])
 
 	return (
             <JoditEditor
