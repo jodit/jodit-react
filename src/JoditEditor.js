@@ -8,7 +8,7 @@ const JoditEditor = forwardRef(
 		{ config, id, name, onBlur, onChange, tabIndex, value, editorRef },
 		ref
 	) => {
-		const textArea = useRef();
+		const textArea = useRef(null);
 
 		useLayoutEffect(() => {
 			if (ref) {

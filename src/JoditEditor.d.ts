@@ -4,7 +4,7 @@ import { IJodit } from 'jodit';
 declare module 'jodit-react' {
 	export interface IJoditEditorProps {
 		value: string,
-		config?: IJodit['options'];
+		config?: Partial<IJodit['options']>;
 		onChange: (newValue: string) => void;
 		onBlur: (newValue: string) => void;
 	}
