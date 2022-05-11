@@ -18,30 +18,11 @@ const JoditEditor = forwardRef(
 					ref.current = textArea.current;
 				}
 			}
-		}, [textArea]);
+		}, [textArea, ref]);
 
 		useEffect(() => {
 			const element = textArea.current;
 			textArea.current = Jodit.make(element, config);
-			textArea.current.workplace.tabIndex = tabIndex || -1;
-
-			// adding event handlers
-			textArea.current.events.on(
-				'blur',
-				e => onBlur && onBlur(textArea.current.value, e)
-			);
-			textArea.current.events.on(
-				'change',
-				value => onChange && onChange(value)
-			);
-
-			if (id) {
-				element.id = id;
-			}
-
-			if (name) {
-				element.name = name;
-			}
 
 			if (isFunction(editorRef)) {
 				editorRef(textArea.current);
@@ -54,7 +35,35 @@ const JoditEditor = forwardRef(
 
 				textArea.current = element;
 			};
-		}, [config]);
+		}, [config, editorRef]);
+
+		useEffect(() => {
+			if (textArea.current.workplace) {
+				textArea.current.workplace.tabIndex = tabIndex || -1;
+			}
+		}, [tabIndex]);
+
+		useEffect(() => {
+			if (!textArea.current.events || (!onBlur && !onChange)) {
+				return;
+			}
+
+			const onBlurHandler = e =>
+				onBlur && onBlur(textArea.current.value, e);
+			const onChangeHandler = value => onChange && onChange(value);
+
+			// adding event handlers
+			textArea.current.events
+				.on('blur', onBlurHandler)
+				.on('change', onChangeHandler);
+
+			return () => {
+				// adding event handlers
+				textArea.current.events
+					.off('blur', onBlurHandler)
+					.off('change', onChangeHandler);
+			};
+		}, [onBlur, onChange]);
 
 		useEffect(() => {
 			if (textArea?.current?.value !== value) {
@@ -64,7 +73,7 @@ const JoditEditor = forwardRef(
 
 		return (
 			<div className={'jodit-react-container'}>
-				<textarea ref={textArea} />
+				<textarea name={name} id={id} ref={textArea} />
 			</div>
 		);
 	}

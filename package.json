@@ -16,6 +16,7 @@
 		"rte"
 	],
 	"dependencies": {
+		"eslint-plugin-react-hooks": "^4.5.0",
 		"jodit": "^3.9.4"
 	},
 	"peerDependencies": {
