@@ -54,11 +54,14 @@ const Form = () => {
 		setInputValue(e.target.value);
 	}, []);
 
-	const handleInputChange = useCallback(e => {
-		const { value } = e.target;
-		setInputValue(() => value);
-		handleWYSIWYGChange(value);
-	}, []);
+	const handleInputChange = useCallback(
+		e => {
+			const { value } = e.target;
+			setInputValue(() => value);
+			handleWYSIWYGChange(value);
+		},
+		[handleWYSIWYGChange]
+	);
 
 	const handleSpin = useCallback(() => setSpin(spin => ++spin), []);
 
