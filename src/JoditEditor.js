@@ -58,9 +58,9 @@ const JoditEditor = forwardRef(
 				.on('change', onChangeHandler);
 
 			return () => {
-				// adding event handlers
-				textArea.current.events
-					.off('blur', onBlurHandler)
+				// Remove event handlers
+				textArea.current?.events
+					?.off('blur', onBlurHandler)
 					.off('change', onChangeHandler);
 			};
 		}, [onBlur, onChange]);
