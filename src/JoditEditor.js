@@ -95,3 +95,5 @@ JoditEditor.propTypes = {
 };
 
 export default JoditEditor;
+
+export { Jodit };

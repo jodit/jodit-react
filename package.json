@@ -16,14 +16,14 @@
 		"rte"
 	],
 	"dependencies": {
-		"eslint-plugin-react-hooks": "^4.5.0",
-		"jodit": "^3.19.3"
+		"jodit": "^3.20.2"
 	},
 	"peerDependencies": {
 		"react": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
 		"react-dom": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
+		"eslint-plugin-react-hooks": "^4.5.0",
 		"@babel/core": "^7.16.0",
 		"@babel/eslint-parser": "^7.17.0",
 		"@babel/preset-env": "^7.16.0",
@@ -41,8 +41,8 @@
 		"husky": "^7.0.4",
 		"lint-staged": "^12.3.4",
 		"prettier": "^2.5.1",
-		"react": "^16.14.0",
-		"react-dom": "^16.14.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"style-loader": "^0.20.3",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12",
