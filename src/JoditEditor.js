@@ -22,15 +22,17 @@ const JoditEditor = forwardRef(
 
 		useEffect(() => {
 			const element = textArea.current;
-			textArea.current = Jodit.make(element, config);
+
+			const jodit = Jodit.make(element, config);
+			textArea.current = jodit;
 
 			if (isFunction(editorRef)) {
-				editorRef(textArea.current);
+				editorRef(jodit);
 			}
 
 			return () => {
-				if (textArea?.current) {
-					textArea.current.destruct();
+				if (jodit) {
+					jodit.destruct();
 				}
 
 				textArea.current = element;
