@@ -9,7 +9,7 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
-## 1.3.17
+## 1.3.18
 
 #### :bug: Bug Fix
 
