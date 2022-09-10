@@ -66,7 +66,9 @@ const Example = ({ placeholder }) => {
 };
 ```
 
-You can use all Jodit functinality
+### Jodit plugins
+
+You can use all Jodit features and write your [own plugin](https://xdsoft.net/jodit/docs/modules/plugin.html) for example.
 
 ```js
 import JoditEditor, { Jodit } from '../../src/';
