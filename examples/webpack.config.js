@@ -32,6 +32,14 @@ module.exports = {
 	},
 
 	devServer: {
-		contentBase: './'
+		static: './',
+		open: true,
+		allowedHosts: 'all',
+		client: {
+			progress: true,
+			overlay: true
+		},
+		port: 4000,
+		hot: true
 	}
 };

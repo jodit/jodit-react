@@ -15,17 +15,20 @@ npm install jodit-react --save
 ```
 
 ## Update editor version
+
 ```bash
 npm update jodit-react
 ```
 
 ## Run demo
+
 ```bash
 npm install --dev
 npm run demo
 ```
 
 and open
+
 ```
 http://localhost:4000/
 ```
@@ -35,32 +38,65 @@ http://localhost:4000/
 ### 1. Require and use Jodit-react component inside your application.
 
 ```jsx
-import React, {useState, useRef, useMemo} from 'react';
-import JoditEditor from "jodit-react";
+import React, { useState, useRef, useMemo } from 'react';
+import JoditEditor from 'jodit-react';
 
-const Example = ({placeholder}) => {
-	const editor = useRef(null)
-	const [content, setContent] = useState('')
+const Example = ({ placeholder }) => {
+	const editor = useRef(null);
+	const [content, setContent] = useState('');
 
-	const config = useMemo({
-		readonly: false // all options from https://xdsoft.net/jodit/doc/,
-		placeholder: placeholder || 'Start typings...'
-	}, [placeholder])
+	const config = useMemo(
+		{
+			readonly: false, // all options from https://xdsoft.net/jodit/doc/,
+			placeholder: placeholder || 'Start typings...'
+		},
+		[placeholder]
+	);
 
 	return (
-            <JoditEditor
-            	ref={editor}
-                value={content}
-                config={config}
-		tabIndex={1} // tabIndex of textarea
-		onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={newContent => {}}
-            />
-        );
-}
+		<JoditEditor
+			ref={editor}
+			value={content}
+			config={config}
+			tabIndex={1} // tabIndex of textarea
+			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+			onChange={newContent => {}}
+		/>
+	);
+};
 ```
 
+You can use all Jodit functinality
 
-License
------
+```js
+import JoditEditor, { Jodit } from '../../src/';
+
+/**
+ * @param {Jodit} jodit
+ */
+function preparePaste(jodit) {
+	jodit.e.on(
+		'paste',
+		e => {
+			if (confirm('Change pasted content?')) {
+				jodit.e.stopPropagation('paste');
+				jodit.s.insertHTML(
+					Jodit.modules.Helpers.getDataTransfer(e)
+						.getData(Jodit.constants.TEXT_HTML)
+						.replace(/a/g, 'b')
+				);
+				return false;
+			}
+		},
+		{ top: true }
+	);
+}
+Jodit.plugins.add('preparePaste', preparePaste);
+
+//...
+return <JoditEditor/>;
+```
+
+## License
+
 This package is available under `MIT` License.
