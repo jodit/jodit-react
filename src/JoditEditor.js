@@ -3,9 +3,27 @@ import { func, number, object, string } from 'prop-types';
 import { Jodit } from './include.jodit';
 const { isFunction } = Jodit.modules.Helpers;
 
+function usePrevious(value) {
+	const ref = useRef();
+	useEffect(() => {
+		ref.current = value;
+	}, [value]);
+	return ref.current;
+}
+
 const JoditEditor = forwardRef(
 	(
-		{ config, id, name, onBlur, onChange, tabIndex, value, editorRef },
+		{
+			className,
+			config,
+			id,
+			name,
+			onBlur,
+			onChange,
+			tabIndex,
+			value,
+			editorRef
+		},
 		ref
 	) => {
 		const textArea = useRef(null);
@@ -38,6 +56,23 @@ const JoditEditor = forwardRef(
 				textArea.current = element;
 			};
 		}, [config, editorRef]);
+
+		const preClassName = usePrevious(className);
+
+		useEffect(() => {
+			const classList = textArea.current?.container?.classList;
+
+			if (
+				preClassName !== className &&
+				typeof preClassName === 'string'
+			) {
+				preClassName.split(/\s+/).forEach(cl => classList?.remove(cl));
+			}
+
+			if (className && typeof className === 'string') {
+				className.split(/\s+/).forEach(cl => classList?.add(cl));
+			}
+		}, [className, preClassName]);
 
 		useEffect(() => {
 			if (textArea.current.workplace) {
@@ -84,6 +119,7 @@ const JoditEditor = forwardRef(
 JoditEditor.displayName = 'JoditEditor';
 
 JoditEditor.propTypes = {
+	className: string,
 	config: object,
 	id: string,
 	name: string,
