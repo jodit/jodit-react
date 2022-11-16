@@ -1,14 +1,21 @@
-import * as React from "react";
-import { IJodit } from "jodit/types";
+import type { Jodit } from 'jodit/types/jodit';
+import * as React from 'react';
 
-export interface JoditProps {
+export interface IJoditEditorProps {
 	value: string;
-	onChange?: (value: string) => void;
-	onBlur?: (value: string) => void;
-	config?: IJodit['options'];
+
+	className?: string;
+
+	config?: Partial<Jodit['options']>;
+	// eslint-disable-next-line no-unused-vars
+	onChange?: (newValue: string) => void;
+	// eslint-disable-next-line no-unused-vars
+	onBlur?: (newValue: string) => void;
 }
 
-export default class JoditEditor extends React.Component<JoditProps, any> {
-	constructor(props: JoditProps, context: any);
-	render(): JSX.Element;
-}
+declare const JoditEditor: React.ForwardRefExoticComponent<
+	React.PropsWithoutRef<IJoditEditorProps> & React.RefAttributes<Jodit>
+>;
+
+export default JoditEditor;
+export { Jodit };
