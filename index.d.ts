@@ -1,4 +1,4 @@
-import type { Jodit } from 'jodit/types/jodit';
+import { Jodit } from 'jodit/types/jodit';
 import * as React from 'react';
 
 export interface IJoditEditorProps {
