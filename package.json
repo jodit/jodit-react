@@ -16,8 +16,6 @@
 		"rte"
 	],
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.36.2",
-		"@typescript-eslint/parser": "^5.36.2",
 		"jodit": "^3.20.2"
 	},
 	"peerDependencies": {
@@ -25,6 +23,8 @@
 		"react-dom": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
 		"@babel/core": "^7.19.0",
 		"@babel/eslint-parser": "^7.18.9",
 		"@babel/preset-env": "^7.19.0",
