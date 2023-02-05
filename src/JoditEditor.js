@@ -103,8 +103,16 @@ const JoditEditor = forwardRef(
 		}, [onBlur, onChange]);
 
 		useEffect(() => {
-			if (textArea?.current?.value !== value) {
-				textArea.current.value = value;
+			const updateValue = () => {
+				if (textArea.current && textArea?.current?.value !== value) {
+					textArea.current.value = value;
+				}
+			};
+
+			if (textArea.current) {
+				textArea.current.isReady
+					? updateValue()
+					: textArea.current.waitForReady().then(updateValue);
 			}
 		}, [value]);
 
