@@ -1,12 +1,18 @@
 import { Jodit } from 'jodit/types/jodit';
 import * as React from 'react';
 
+type DeepPartial<T> = T extends object
+	? {
+			[P in keyof T]?: DeepPartial<T[P]>;
+	  }
+	: T;
+
 export interface IJoditEditorProps {
 	value: string;
 
 	className?: string;
 
-	config?: Partial<Jodit['options']>;
+	config?: DeepPartial<Jodit['options']>;
 	// eslint-disable-next-line no-unused-vars
 	onChange?: (newValue: string) => void;
 	// eslint-disable-next-line no-unused-vars
