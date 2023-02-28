@@ -47,7 +47,7 @@ const Example = ({ placeholder }) => {
 
 	const config = useMemo(
 		{
-			readonly: false, // all options from https://xdsoft.net/jodit/doc/,
+			readonly: false, // all options from https://xdsoft.net/jodit/docs/,
 			placeholder: placeholder || 'Start typings...'
 		},
 		[placeholder]
