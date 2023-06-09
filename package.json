@@ -1,6 +1,6 @@
 {
 	"name": "jodit-react",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main": "build/jodit-react.js",
 	"author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -51,7 +51,7 @@
 		"webpack-dev-server": "^4.13.1"
 	},
 	"scripts": {
-		"newversion": "npm run lint && npm update && rm -rf build/ && npm run build && npm version patch --no-git-tag-version && npm run github && npm publish ./",
+		"newversion": "npm run lint && npm update && rm -rf build/ && npm run build && npm version patch --no-git-tag-version && npm run github",
 		"lint": "eslint ./",
 		"demo": "cd examples && export NODE_ENV=development && webpack serve --config ./webpack.config.js --mode development",
 		"start": "npm run demo",
