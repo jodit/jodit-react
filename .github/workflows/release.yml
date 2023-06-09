@@ -1,0 +1,33 @@
+name: Publish Package to npmjs
+
+on:
+  push:
+    tags: ["*"]
+
+jobs:
+  release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3 #Setup Node
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm ci
+
+    - name: Lint
+      run: |
+        npm run lint
+
+    - name: Build
+      run: |
+        npm run build
+
+    - name: Publish
+      run: |
+        NPM_TOKEN=${{ secrets.NPM_TOKEN }} npm publish ./ --access public
