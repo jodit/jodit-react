@@ -16,20 +16,20 @@
 		"rte"
 	],
 	"dependencies": {
-		"jodit": "^4.0.0-beta.61"
+		"jodit": "^4.0.0-beta.82"
 	},
 	"peerDependencies": {
 		"react": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
 		"react-dom": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.57.0",
-		"@typescript-eslint/parser": "^5.57.0",
 		"@babel/core": "^7.21.3",
 		"@babel/eslint-parser": "^7.21.3",
 		"@babel/preset-env": "^7.20.2",
 		"@babel/preset-react": "^7.18.6",
 		"@types/react": "^18.0.31",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
 		"babel": "^6.23.0",
 		"babel-cli": "^6.26.0",
 		"babel-loader": "^9.1.2",
