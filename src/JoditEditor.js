@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react';
 import { func, number, object, string } from 'prop-types';
 import { Jodit } from './include.jodit';
+
 const { isFunction } = Jodit.modules.Helpers;
 
 function usePrevious(value) {
@@ -117,7 +118,12 @@ const JoditEditor = forwardRef(
 
 		return (
 			<div className={'jodit-react-container'}>
-				<textarea defaultValue={value} name={name} id={id} ref={textArea} />
+				<textarea
+					defaultValue={value}
+					name={name}
+					id={id}
+					ref={textArea}
+				/>
 			</div>
 		);
 	}
