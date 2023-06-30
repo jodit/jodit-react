@@ -1,6 +1,9 @@
 name: Publish Package to npmjs
 
 on:
+  repository_dispatch:
+    types: [ release ]
+
   push:
     tags: ["*"]
 

@@ -40,7 +40,7 @@ const JoditEditor = forwardRef(
 
 		useEffect(() => {
 			const element = textArea.current;
-
+			element.value = value || '';
 			const jodit = Jodit.make(element, config);
 			textArea.current = jodit;
 
