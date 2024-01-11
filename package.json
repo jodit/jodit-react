@@ -1,6 +1,6 @@
 {
 	"name": "jodit-react",
-	"version": "2.0.1-beta.39",
+	"version": "4.0.1",
 	"description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main": "build/jodit-react.js",
 	"author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -16,7 +16,7 @@
 		"rte"
 	],
 	"dependencies": {
-		"jodit": "^4.0.0-beta.120"
+		"jodit": "^4.0.0"
 	},
 	"peerDependencies": {
 		"react": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
@@ -51,7 +51,7 @@
 		"webpack-dev-server": "^4.15.1"
 	},
 	"scripts": {
-		"newversion": "npm version prerelease --preid=beta --no-git-tag-version && npm run github",
+		"newversion": "npm version patch --no-git-tag-version && npm run github",
 		"lint": "eslint ./",
 		"demo": "cd examples && export NODE_ENV=development && webpack serve --config ./webpack.config.js --mode development",
 		"start": "npm run demo",
