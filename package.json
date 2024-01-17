@@ -1,6 +1,6 @@
 {
 	"name": "jodit-react",
-	"version": "4.0.6",
+	"version": "4.0.7",
 	"description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main": "build/jodit-react.js",
 	"author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
@@ -56,7 +56,7 @@
 		"demo": "cd examples && export NODE_ENV=development && webpack serve --config ./webpack.config.js --mode development",
 		"start": "npm run demo",
 		"build": "export NODE_ENV=production && webpack --mode production",
-		"github": "npm run git && git push --tags origin HEAD:master",
+		"github": "npm run git && git push --tags origin HEAD:main",
 		"git": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version"
 	},
 	"repository": {
