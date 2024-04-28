@@ -1,4 +1,4 @@
-import type { Jodit } from 'jodit/esm/index';
+import { Jodit } from 'jodit/esm/index';
 import * as React from 'react';
 
 type DeepPartial<T> = T extends object
