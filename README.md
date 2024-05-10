@@ -45,11 +45,10 @@ const Example = ({ placeholder }) => {
 	const editor = useRef(null);
 	const [content, setContent] = useState('');
 
-	const config = useMemo(
-		{
+	const config = useMemo(() => ({
 			readonly: false, // all options from https://xdsoft.net/jodit/docs/,
 			placeholder: placeholder || 'Start typings...'
-		},
+		}),
 		[placeholder]
 	);
 
@@ -71,7 +70,7 @@ const Example = ({ placeholder }) => {
 You can use all Jodit features and write your [own plugin](https://xdsoft.net/jodit/docs/modules/plugin.html) for example.
 
 ```js
-import JoditEditor, { Jodit } from '../../src/';
+import JoditEditor, { Jodit } from 'jodit-react';
 
 /**
  * @param {Jodit} jodit
@@ -96,8 +95,10 @@ function preparePaste(jodit) {
 Jodit.plugins.add('preparePaste', preparePaste);
 
 //...
-return <JoditEditor/>;
+return <JoditEditor />;
 ```
+
+You can see how to write plugins [in the documentation](https://xdsoft.net/jodit/pro/docs/how-to/create-plugin.md) or [on the stand](https://xdsoft.net/jodit/pro/docs/getting-started/examples.md#jodit-example-paste-link)
 
 ## License
 
