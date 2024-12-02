@@ -42,6 +42,7 @@ const JoditEditor = forwardRef(
 		useEffect(() => {
 			const element = textArea.current;
 			const jodit = Jodit.make(element, config);
+			jodit.value=value // set initial value
 			textArea.current = jodit;
 
 			if (isFunction(editorRef)) {
