@@ -4,3 +4,5 @@ eslint.config.mjs
 .gitignore
 .prettierrc.json
 tsconfig.types.json
+.github
+webpack.config.ts
