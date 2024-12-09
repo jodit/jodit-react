@@ -1,21 +1,22 @@
-import React, { useCallback, useState } from 'react';
+import React, { type ChangeEvent, useCallback, useState } from 'react';
 
 import JoditEditor, { Jodit } from '../../src/';
 import './Form.css';
+import type { IJodit } from 'jodit/types/types/jodit';
 
 /**
  * @param {Jodit} jodit
  */
-function preparePaste(jodit) {
+function preparePaste(jodit: IJodit) {
 	jodit.e.on(
 		'paste',
 		e => {
 			if (confirm('Change pasted content?')) {
 				jodit.e.stopPropagation('paste');
 				jodit.s.insertHTML(
-					Jodit.modules.Helpers.getDataTransfer(e)
+					Jodit.modules.Helpers.getDataTransfer(e)!
 						.getData(Jodit.constants.TEXT_HTML)
-						.replace(/a/g, 'b')
+						?.replace(/a/g, 'b') ?? ''
 				);
 				return false;
 			}
@@ -57,11 +58,14 @@ const Form = () => {
 		[]
 	);
 
-	const handleBlurAreaChange = useCallback((textAreaValue, event) => {
-		console.log('handleBlurAreaChange', textAreaValue, event);
-	}, []);
+	const handleBlurAreaChange = useCallback(
+		(textAreaValue: string, event: MouseEvent) => {
+			console.log('handleBlurAreaChange', textAreaValue, event);
+		},
+		[]
+	);
 
-	const handleWYSIWYGChange = useCallback(newTextAreaValue => {
+	const handleWYSIWYGChange = useCallback((newTextAreaValue: string) => {
 		console.log('handleWYSIWYGChange', newTextAreaValue);
 
 		setTextAreaValue(newTextAreaValue);
@@ -70,16 +74,17 @@ const Form = () => {
 		return setTextAreaValue(() => newTextAreaValue);
 	}, []);
 
-	const handleNativeTextAreaChange = useCallback(e => {
-		console.log('handleNativeTextAreaChange', e.target.value);
-		setTextAreaValue(e.target.value);
-		setInputValue(e.target.value);
+	const handleNativeTextAreaChange = useCallback((e: ChangeEvent) => {
+		const value = (e.target as HTMLTextAreaElement).value;
+		console.log('handleNativeTextAreaChange', value);
+		setTextAreaValue(value);
+		setInputValue(value);
 	}, []);
 
 	const handleInputChange = useCallback(
-		e => {
-			const { value } = e.target;
-			setInputValue(() => value);
+		(e: ChangeEvent) => {
+			const { value } = e.target as HTMLInputElement;
+			setInputValue(value);
 			handleWYSIWYGChange(value);
 		},
 		[handleWYSIWYGChange]
@@ -87,8 +92,8 @@ const Form = () => {
 
 	const handleSpin = useCallback(() => setSpin(spin => ++spin), []);
 
-	const onSourceChange = useCallback(e => {
-		setSource(e.target.checked);
+	const onSourceChange = useCallback((e: ChangeEvent) => {
+		setSource((e.target as HTMLInputElement).checked);
 	}, []);
 
 	return (

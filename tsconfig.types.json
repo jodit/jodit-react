@@ -1,0 +1,10 @@
+{
+  "exclude": ["./tsconfig.json"],
+  "compilerOptions": {
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "./build/types",
+    "esModuleInterop": true
+  },
+  "files": ["./src/index"]
+}

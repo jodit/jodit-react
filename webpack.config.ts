@@ -1,22 +1,22 @@
-const webpack = require('webpack');
-const path = require('path');
+import path from 'path';
+import webpack from 'webpack';
+import process from 'process';
 
-module.exports = (env, argv, dir = process.cwd()) => {
+export default (env: unknown, argv: { mode?: string }, dir = process.cwd()) => {
 	const debug = !argv || !argv.mode || !argv.mode.match(/production/);
 
 	return {
 		context: dir,
 
-		entry: './src/index.js',
+		entry: './src/index.ts',
 		devtool: debug ? 'inline-source-map' : false,
 
 		module: {
 			rules: [
 				{
-					test: /\.js$/,
+					test: /\.(js|jsx|ts|tsx)$/,
 					use: {
-						loader: 'babel-loader',
-						options: require(path.join(dir, './babel.config.json'))
+						loader: 'swc-loader'
 					}
 				},
 				{
@@ -27,6 +27,7 @@ module.exports = (env, argv, dir = process.cwd()) => {
 		},
 
 		resolve: {
+			extensions: ['.ts', '.tsx', '.js', '.jsx'],
 			alias: {
 				'jodit-react': path.join(__dirname, './src')
 			}

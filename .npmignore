@@ -1,6 +1,6 @@
 .idea
-.eslintrc.js
-.eslintignore
+eslint.config.mjs
 .editorconfig
 .gitignore
 .prettierrc.json
+tsconfig.types.json

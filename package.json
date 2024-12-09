@@ -1,9 +1,9 @@
 {
 	"name": "jodit-react",
-	"version": "4.1.27",
+	"version": "5.0.0-beta.0",
 	"description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main": "build/jodit-react.js",
-	"author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)s",
+	"author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)",
 	"keywords": [
 		"react",
 		"jodit",
@@ -19,43 +19,41 @@
 		"jodit": "^4.2.47"
 	},
 	"peerDependencies": {
-		"react": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
-		"react-dom": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+		"react": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+		"react-dom": "~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.22.5",
-		"@babel/eslint-parser": "^7.22.5",
-		"@babel/preset-env": "^7.22.5",
-		"@babel/preset-react": "^7.22.5",
-		"@types/react": "^18.2.14",
-		"@typescript-eslint/eslint-plugin": "^5.60.1",
-		"@typescript-eslint/parser": "^5.60.1",
-		"babel": "^6.23.0",
-		"babel-cli": "^6.26.0",
-		"babel-loader": "^9.1.2",
-		"babel-plugin-transform-class-properties": "^6.24.1",
-		"css-loader": "^6.8.1",
-		"eslint": "8.43.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3",
-		"prettier": "^2.8.8",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"style-loader": "^3.3.3",
-		"webpack": "^5.88.1",
+		"@eslint/compat": "^1.2.4",
+		"@swc-node/register": "^1.10.9",
+		"@swc/core": "^1.10.1",
+		"@types/react": "^19.0.1",
+		"@types/react-dom": "^19.0.2",
+		"@typescript-eslint/eslint-plugin": "^8.18.0",
+		"css-loader": "^7.1.2",
+		"eslint": "9.16.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.37.2",
+		"eslint-plugin-react-hooks": "^5.1.0",
+		"prettier": "^3.4.2",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"style-loader": "^4.0.0",
+		"swc-loader": "^0.2.6",
+		"webpack": "^5.97.1",
 		"webpack-cli": "^5.1.4",
-		"webpack-dev-server": "^4.15.1"
+		"webpack-dev-server": "^5.1.0"
 	},
 	"scripts": {
-		"newversion": "npm version patch --no-git-tag-version && npm run github",
-		"lint": "eslint ./",
-		"demo": "cd examples && export NODE_ENV=development && webpack serve --config ./webpack.config.js --mode development",
+		"newversion": "npm version prerelease --preid=beta --no-git-tag-version && npm run github",
+		"lint": "npm run lint:ts && npm run lint:eslint",
+		"lint:ts": "tsc --noEmit",
+    "lint:eslint": "eslint ./",
+		"demo": "NODE_ENV=development node -r @swc-node/register ./node_modules/.bin/webpack serve --config ./examples/webpack.config.ts --mode development",
 		"start": "npm run demo",
-		"build": "export NODE_ENV=production && webpack --mode production",
+		"build": "npm run build:react && npm run build:types",
+		"build:react": "NODE_ENV=production node -r @swc-node/register ./node_modules/.bin/webpack --mode production",
+    "build:types": "rm -rf ./build/types && tsc --project tsconfig.types.json --emitDeclarationOnly",
 		"github": "npm run git && git push --tags origin HEAD:main",
 		"git": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version"
 	},
@@ -67,16 +65,17 @@
 	"bugs": {
 		"url": "https://github.com/jodit/jodit-react/issues"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"**/*.js": [
-			"eslint ./ --fix",
-			"git add"
+	"homepage": "https://xdsoft.net/jodit/",
+	"ava": {
+		"extensions": [
+			"ts",
+			"tsx"
+		],
+		"require": [
+			"@swc-node/register"
+		],
+		"files": [
+			"packages/**/*.spec.{ts,tsx}"
 		]
-	},
-	"homepage": "https://xdsoft.net/jodit/"
+	}
 }

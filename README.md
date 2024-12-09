@@ -100,6 +100,24 @@ return <JoditEditor />;
 
 You can see how to write plugins [in the documentation](https://xdsoft.net/jodit/pro/docs/how-to/create-plugin.md) or [on the stand](https://xdsoft.net/jodit/pro/docs/getting-started/examples.md#jodit-example-paste-link)
 
+## Use with Jodit PRO
+
+You can connect any Jodit constructor and set it as the `JoditConstructor` property of the component.
+
+```jsx
+import React from 'react';
+import JoditEditor from 'jodit-react';
+import {Jodit} from 'jodit-pro';
+import 'jodit-pro/es5/jodit.min.css';
+// ...
+
+function App() {
+  return <JoditEditor JoditConstructor={Jodit} />;
+}
+
+```
+
+
 ## License
 
 This package is available under `MIT` License.
