@@ -1,1 +1,4 @@
-export type * from './build/types/index.d.ts';
+import JoditEditor from './build/types/JoditEditor';
+import { Jodit } from './build/types/include.jodit';
+export default JoditEditor;
+export { Jodit };

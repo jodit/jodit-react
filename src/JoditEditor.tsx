@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react';
 import type { IJodit } from 'jodit/types/types/jodit';
 import type { Jodit as JoditConstructorType } from 'jodit';
+import type { Config } from 'jodit/config';
 import { Jodit } from './include.jodit';
 
 function usePrevious(value: string): string {
@@ -19,7 +20,7 @@ type DeepPartial<T> = T extends object
 
 interface Props<T extends typeof JoditConstructorType = typeof Jodit> {
 	JoditConstructor?: T;
-	config?: DeepPartial<ReturnType<T['make']>['options']>;
+	config?: DeepPartial<Config>;
 	className?: string;
 	id?: string;
 	name?: string;
@@ -84,11 +85,17 @@ const JoditEditor = forwardRef<IJodit, Props>(
 				preClassName !== className &&
 				typeof preClassName === 'string'
 			) {
-				preClassName.split(/\s+/).forEach(cl => classList?.remove(cl));
+				preClassName
+					.split(/\s+/)
+					.filter(Boolean)
+					.forEach(cl => classList?.remove(cl));
 			}
 
 			if (className && typeof className === 'string') {
-				className.split(/\s+/).forEach(cl => classList?.add(cl));
+				className
+					.split(/\s+/)
+					.filter(Boolean)
+					.forEach(cl => classList?.add(cl));
 			}
 		}, [className, preClassName]);
 

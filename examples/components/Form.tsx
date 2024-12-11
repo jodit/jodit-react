@@ -30,6 +30,7 @@ const Form = () => {
 	const [isSource, setSource] = useState(false);
 
 	const [config, setConfig] = useState({
+		toolbarAdaptive: false,
 		readonly: false,
 		toolbar: true
 	});
