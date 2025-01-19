@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react';
 import type { IJodit } from 'jodit/types/types/jodit';
-import type { Jodit as JoditConstructorType } from 'jodit';
-import type { Config } from 'jodit/config';
+import type { Jodit as JoditBaseConstructor } from 'jodit/types/index';
+import type { Config as BaseConfig } from 'jodit/config';
+import type { Config } from 'jodit/types/config';
 import { Jodit } from './include.jodit';
+import type { DeepPartial } from 'jodit/types/types';
 
 function usePrevious(value: string): string {
 	const ref = useRef<string>('');
@@ -12,15 +14,9 @@ function usePrevious(value: string): string {
 	return ref.current;
 }
 
-type DeepPartial<T> = T extends object
-	? {
-			[P in keyof T]?: DeepPartial<T[P]>;
-		}
-	: T;
-
-interface Props<T extends typeof JoditConstructorType = typeof Jodit> {
+interface Props<T extends typeof JoditBaseConstructor = typeof Jodit> {
 	JoditConstructor?: T;
-	config?: DeepPartial<Config>;
+	config?: DeepPartial<Config & BaseConfig>;
 	className?: string;
 	id?: string;
 	name?: string;

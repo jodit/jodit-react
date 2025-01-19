@@ -16,7 +16,7 @@
     "rte"
   ],
   "dependencies": {
-    "jodit": "^4.2.47"
+    "jodit": "^4.2.48"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15 || ^16 || ^17 || ^18 || ^19",
@@ -28,7 +28,9 @@
     "@swc-node/register": "^1.10.9",
     "@swc/core": "^1.10.7",
     "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.0",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",

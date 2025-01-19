@@ -6,3 +6,4 @@ eslint.config.mjs
 tsconfig.types.json
 .github
 webpack.config.ts
+/coverage/
