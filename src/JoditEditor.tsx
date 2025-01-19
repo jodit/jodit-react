@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef, useLayoutEffect, useImperativeHandle } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import type { IJodit } from 'jodit/types/types/jodit';
 import type { Jodit as JoditBaseConstructor } from 'jodit/types/index';
 import type { Config as BaseConfig } from 'jodit/config';
