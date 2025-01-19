@@ -1,17 +1,19 @@
 {
 	"compilerOptions": {
 		"target": "es2015",
-		"module": "esnext",
+		"module": "ESNext",
 		"outDir": "./build",
 		"declaration": true,
 		"declarationDir": "./build/types",
 		"strict": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
+    "moduleDetection": "force",
+    "allowJs": true,
+    "noUncheckedIndexedAccess": true,
     "allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
-		"verbatimModuleSyntax": true,
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"moduleResolution": "node",
 		"noImplicitAny": true
 	}
