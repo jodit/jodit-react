@@ -1,9 +1,13 @@
 {
   "exclude": ["./tsconfig.json"],
   "compilerOptions": {
+    "target": "ES2022",
     "jsx": "react",
     "declaration": true,
+    "outDir": "./build/types",
     "declarationDir": "./build/types",
+    "module": "ES2022",
+    "moduleResolution": "node",
     "esModuleInterop": true
   },
   "files": ["./src/index"]

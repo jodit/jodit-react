@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "5.0.9",
+  "version": "5.0.10",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)",
@@ -66,7 +66,7 @@
     "start": "npm run demo",
     "build": "npm run build:react && npm run build:types",
     "build:react": "NODE_ENV=production node -r @swc-node/register ./node_modules/.bin/webpack --mode production",
-    "build:types": "rm -rf ./build/types && tsc --project tsconfig.types.json --emitDeclarationOnly",
+    "build:types": "rm -rf ./build/types && tsc --project tsconfig.types.json && npm run remove-css",
     "remove-css": "replace \"import '[^']+.css';\" '' ./build/**/*.ts",
     "github": "npm run git && git push --tags origin HEAD:main",
     "git": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version",
