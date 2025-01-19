@@ -69,7 +69,9 @@ const JoditEditor = forwardRef<IJodit, Props>(
 				if (jodit.isReady) {
 					jodit.destruct();
 				} else {
-					jodit.waitForReady().then((joditInstance) => joditInstance.destruct());
+					jodit
+						.waitForReady()
+						.then(joditInstance => joditInstance.destruct());
 				}
 			};
 		}, [JoditConstructor, config, editorRef]);
