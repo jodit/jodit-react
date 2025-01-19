@@ -9,12 +9,12 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
-## 5.0.5
+## 5.0.7
 
 - [Fix: Avoid "Abort async" error by utilizing waitForReady API in Jodit destruct handling #287](https://github.com/jodit/jodit-react/pull/287)
 - Fixed Config type issue
 - Support React 19
--
+
 
 ## 4.0.1
 
