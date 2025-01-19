@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import JoditEditor from '../src';
 
 describe('On change Test', () => {
