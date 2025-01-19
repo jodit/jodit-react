@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef, useLayoutEffect } from 'react';
+import React, { useEffect, useRef, forwardRef, useLayoutEffect, useImperativeHandle } from 'react';
 import type { IJodit } from 'jodit/types/types/jodit';
 import type { Jodit as JoditBaseConstructor } from 'jodit/types/index';
 import type { Config as BaseConfig } from 'jodit/config';
@@ -46,16 +46,6 @@ const JoditEditor = forwardRef<IJodit, Props>(
 		const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 		const joditRef = useRef<IJodit | null>(null);
 
-		useLayoutEffect(() => {
-			if (ref) {
-				if (typeof ref === 'function') {
-					ref(joditRef.current);
-				} else {
-					ref.current = joditRef.current;
-				}
-			}
-		}, [textAreaRef, ref]);
-
 		useEffect(() => {
 			const element = textAreaRef.current!;
 			const jodit = JoditConstructor.make(element, config);
@@ -75,6 +65,16 @@ const JoditEditor = forwardRef<IJodit, Props>(
 				}
 			};
 		}, [JoditConstructor, config, editorRef]);
+
+		useEffect(() => {
+			if (ref) {
+				if (typeof ref === 'function') {
+					ref(joditRef.current);
+				} else {
+					ref.current = joditRef.current;
+				}
+			}
+		}, [textAreaRef, ref, joditRef]);
 
 		const preClassName = usePrevious(className ?? '');
 
