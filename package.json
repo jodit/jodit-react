@@ -59,7 +59,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "newversion": "npm version patch --no-git-tag-version && pnpm run github",
+    "newversion": "pnpm version patch --no-git-tag-version && pnpm run github",
     "lint": "pnpm run lint:ts && pnpm run lint:eslint",
     "lint:ts": "tsc --noEmit",
     "lint:eslint": "eslint ./",
