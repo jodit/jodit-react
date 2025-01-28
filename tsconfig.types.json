@@ -8,7 +8,8 @@
     "declarationDir": "./build/types",
     "module": "ES2022",
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "files": ["./src/index"]
 }
