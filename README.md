@@ -23,14 +23,19 @@ npm update jodit-react
 ## Run demo
 
 ```bash
-npm install --dev
-npm run demo
+pnpm install --dev
+pnpm run demo
 ```
-
 and open
 
 ```
 http://localhost:4000/
+```
+
+### Install PnPM
+
+```bash
+npm install -g pnpm
 ```
 
 ## Usage
@@ -63,6 +68,17 @@ const Example = ({ placeholder }) => {
 		/>
 	);
 };
+```
+
+### Import and use Jodit-react inside your Next.js application
+
+```
+import dynamic from 'next/dynamic';
+
+const JoditEditor = dynamic(() => import('jodit-react'), {
+  ssr: false,
+});
+
 ```
 
 ### Jodit plugins
