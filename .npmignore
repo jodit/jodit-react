@@ -7,3 +7,6 @@ tsconfig.types.json
 .github
 webpack.config.ts
 /coverage/
+__mocks__
+tests
+jest.config.ts
