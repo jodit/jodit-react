@@ -48,4 +48,4 @@ jobs:
       run: |
         VERSION=${{ steps.get_version.outputs.version }}
         PACKAGE_NAME="jodit-react"
-        echo "[New version npm](https://www.npmjs.com/package/${PACKAGE_NAME}/v${VERSION})" >> $GITHUB_STEP_SUMMARY
+        echo "[New version npm](https://www.npmjs.com/package/${PACKAGE_NAME}/v/${VERSION})" >> $GITHUB_STEP_SUMMARY
