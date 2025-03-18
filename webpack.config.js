@@ -1,8 +1,8 @@
-import path from 'path';
-import webpack from 'webpack';
-import process from 'process';
+const path = require('path');
+const webpack =require('webpack');
+const process =require('process');
 
-export default (env: unknown, argv: { mode?: string }, dir = process.cwd()) => {
+const config= (env, argv, dir = process.cwd()) => {
 	const debug = !argv || !argv.mode || !argv.mode.match(/production/);
 
 	return {
@@ -69,3 +69,4 @@ export default (env: unknown, argv: { mode?: string }, dir = process.cwd()) => {
 		}
 	};
 };
+module.exports = config;
