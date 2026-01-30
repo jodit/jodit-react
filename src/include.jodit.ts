@@ -1,7 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - Jodit Editor (https://xdsoft.net/jodit/)
-import { Jodit as JoditES5 } from 'jodit/es5/jodit.fat.min';
-import type { Jodit as JoditConstructorType } from 'jodit';
-import 'jodit/es5/jodit.min.css';
+import { Jodit as JoditES5 } from 'jodit/esm/index';
+import type { Jodit as JoditConstructorType } from 'jodit/esm/jodit';
+import 'jodit/es2021/jodit.min.css';
+
+import 'jodit/esm/plugins/all';
 
 export const Jodit: typeof JoditConstructorType = JoditES5;

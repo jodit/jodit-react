@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "5.0.13",
+  "version": "5.2.41",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)",
@@ -16,7 +16,7 @@
     "rte"
   ],
   "dependencies": {
-    "jodit": "^4.3.2"
+    "jodit": "^4.8.3"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15 || ^16 || ^17 || ^18 || ^19",
@@ -45,6 +45,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "html-webpack-plugin": "^5.6.3",
     "prettier": "^3.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -63,7 +64,7 @@
     "lint": "npm run lint:ts && npm run lint:eslint",
     "lint:ts": "tsc --noEmit",
     "lint:eslint": "eslint ./",
-    "demo": "NODE_ENV=development node -r @swc-node/register ./node_modules/.bin/webpack serve --config ./examples/webpack.config.ts --mode development",
+    "demo": "cross-env NODE_ENV=development node -r @swc-node/register && npm run serve",
     "start": "npm run demo",
     "build": "npm run build:react && npm run build:types",
     "build:react": "cross-env NODE_ENV=production node -r @swc-node/register && npm run webpack",    

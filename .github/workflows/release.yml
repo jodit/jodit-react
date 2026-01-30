@@ -1,6 +1,8 @@
 name: Publish Package to npmjs
 
 on:
+  workflow_dispatch:
+
   repository_dispatch:
     types: [ release ]
 
@@ -34,3 +36,16 @@ jobs:
     - name: Publish
       run: |
         NPM_TOKEN=${{ secrets.NPM_TOKEN }} npm publish ./ --access public
+
+    - name: Get tag
+      id: get_version
+      run: |
+        VERSION=$(node -p "require('./package.json').version")
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Show new version
+      run: |
+        VERSION=${{ steps.get_version.outputs.version }}
+        PACKAGE_NAME="jodit-react"
+        echo "[New version npm](https://www.npmjs.com/package/${PACKAGE_NAME}/v/${VERSION})" >> $GITHUB_STEP_SUMMARY
