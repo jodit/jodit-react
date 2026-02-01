@@ -15,7 +15,9 @@ function usePrevious(value: string): string {
 	return ref.current;
 }
 
-interface Props<T extends typeof JoditBaseConstructor = typeof Jodit> {
+export interface JoditEditorProps<
+	T extends typeof JoditBaseConstructor = typeof Jodit
+> {
 	JoditConstructor?: T;
 	config?: DeepPartial<Config>;
 	className?: string;
@@ -28,7 +30,7 @@ interface Props<T extends typeof JoditBaseConstructor = typeof Jodit> {
 	editorRef?: (editor: IJodit) => void;
 }
 
-const JoditEditor = forwardRef<IJodit, Props>(
+const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 	(
 		{
 			JoditConstructor = Jodit,

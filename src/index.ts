@@ -3,3 +3,4 @@ import { Jodit } from './include.jodit';
 
 export default JoditEditor;
 export { Jodit };
+export type { JoditEditorProps } from './JoditEditor';

@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "5.3.14",
+  "version": "5.3.15",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "module": "./build/esm/index.mjs",
@@ -14,6 +14,16 @@
       "require": {
         "types": "./build/types/index.d.ts",
         "default": "./build/react-jodit.js"
+      }
+    },
+    "./types/JoditEditor": {
+      "import": {
+        "types": "./build/esm/JoditEditor.d.mts",
+        "default": "./build/esm/JoditEditor.mjs"
+      },
+      "require": {
+        "types": "./build/types/JoditEditor.d.ts",
+        "default": "./build/types/JoditEditor.js"
       }
     }
   },
@@ -84,7 +94,7 @@
     "build": "npm run build:react && npm run build:types && npm run build:esm",
     "build:react": "cross-env NODE_ENV=production node -r @swc-node/register ./node_modules/.bin/webpack --mode production",
     "build:types": "rm -rf ./build/types && tsc --project tsconfig.types.json && npm run remove-css",
-    "build:esm": "tsup src/index.ts --dts --format esm -d ./build/esm --clean",
+    "build:esm": "tsup src/index.ts src/JoditEditor.tsx --dts --format esm -d ./build/esm --clean",
     "remove-css": "replace \"import '[^']+.css';\" ''./build/**/*.ts",
     "github": "npm run git && git push --tags origin HEAD:main",
     "git": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/jodit/jodit-react/releases/tag/$npm_package_version \" && git tag $npm_package_version",
