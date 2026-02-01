@@ -1,7 +1,6 @@
 import React from 'react';
-import { describe, it } from '@jest/globals';
 import { render, act } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { describe, it, expect } from 'vitest';
 import JoditEditor from '../src';
 import type { IJodit } from 'jodit/types/types/jodit';
 

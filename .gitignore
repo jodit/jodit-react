@@ -4,3 +4,4 @@
 /examples/build/
 build
 /coverage/
+.DS_Store

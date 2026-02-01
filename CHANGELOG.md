@@ -9,6 +9,15 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.3.1
+
+- feat: update package.json for module exports and types, add esm build
+- chore: upgrade devDependencies to latest versions
+- fix: add eslint disable comment for usePrevious hook
+- test: migrate tests from Jest to Vitest, update snapshots and test cases
+- refactor: remove webpack.config.js, add webpack.config.ts for improved configuration
+- chore: add vitest.config.ts for Vitest setup
+
 ## 5.0.9
 
 - Fixed ref forwarding issue

@@ -1,51 +1,50 @@
 name: Publish Package to npmjs
 
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
-  repository_dispatch:
-    types: [ release ]
+    repository_dispatch:
+        types: [release]
 
-  push:
-    tags: ["*"]
+    push:
+        tags: ['*']
 
 jobs:
-  release:
+    release:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4 #Setup Node
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'npm'
 
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4 #Setup Node
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
+            - name: Install dependencies
+              run: |
+                  npm ci
 
-    - name: Install dependencies
-      run: |
-        npm ci
+            - name: Lint
+              run: |
+                  npm run lint
 
-    - name: Lint
-      run: |
-        npm run lint
+            - name: Build
+              run: |
+                  npm run build
 
-    - name: Build
-      run: |
-        npm run build
+            - name: Publish
+              run: |
+                  NPM_TOKEN=${{ secrets.NPM_TOKEN }} npm publish ./ --access public
 
-    - name: Publish
-      run: |
-        NPM_TOKEN=${{ secrets.NPM_TOKEN }} npm publish ./ --access public
+            - name: Get tag
+              id: get_version
+              run: |
+                  VERSION=$(node -p "require('./package.json').version")
+                  echo "VERSION=$VERSION" >> $GITHUB_ENV
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-    - name: Get tag
-      id: get_version
-      run: |
-        VERSION=$(node -p "require('./package.json').version")
-        echo "VERSION=$VERSION" >> $GITHUB_ENV
-        echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-    - name: Show new version
-      run: |
-        VERSION=${{ steps.get_version.outputs.version }}
-        PACKAGE_NAME="jodit-react"
-        echo "[New version npm](https://www.npmjs.com/package/${PACKAGE_NAME}/v/${VERSION})" >> $GITHUB_STEP_SUMMARY
+            - name: Show new version
+              run: |
+                  VERSION=${{ steps.get_version.outputs.version }}
+                  PACKAGE_NAME="jodit-react"
+                  echo "[New version npm](https://www.npmjs.com/package/${PACKAGE_NAME}/v/${VERSION})" >> $GITHUB_STEP_SUMMARY

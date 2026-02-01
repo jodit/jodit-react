@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"types": ["vitest/globals"],
 		"target": "es2015",
 		"module": "ESNext",
 		"outDir": "./build",
@@ -8,13 +9,15 @@
 		"strict": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
-    "moduleDetection": "force",
-    "allowJs": true,
-    "noUncheckedIndexedAccess": true,
-    "allowSyntheticDefaultImports": true,
+		"moduleDetection": "force",
+		"allowJs": true,
+		"noUncheckedIndexedAccess": true,
+		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-jsx",
 		"moduleResolution": "node",
 		"noImplicitAny": true
-	}
+	},
+	"include": ["src/**/*", "examples/**/*"],
+	"exclude": ["build"]
 }

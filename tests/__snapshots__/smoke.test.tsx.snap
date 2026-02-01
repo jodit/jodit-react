@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Smoke Test Config should render without crashing 1`] = `
+exports[`Smoke Test > Config > should render without crashing 1`] = `
 <DocumentFragment>
   <div
     class="jodit-react-container"
@@ -8,7 +8,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
     <div
       class="jodit-container jodit jodit_theme_default jodit-wysiwyg_mode jodit_disabled"
       contenteditable="false"
-      style="min-height: 200px; max-height: auto; min-width: 200px; max-width: 100%; height: auto; width: auto;"
+      style="min-height: 200px; min-width: 200px; max-width: 100%; height: auto; --jd-jodit-workplace-height: auto; width: auto;"
     >
       <div
         class="jodit-toolbar__box"
@@ -249,6 +249,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -299,6 +300,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -358,6 +360,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -407,6 +410,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -454,6 +458,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -519,6 +524,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -572,6 +578,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -634,32 +641,53 @@ exports[`Smoke Test Config should render without crashing 1`] = `
         </div>
       </div>
       <div
-        class="jodit-workplace"
+        class="jodit-jodit__workplace-slot_top_true"
         contenteditable="false"
-        style="min-height: 198px; height: auto;"
-        tabindex="-1"
+      />
+      <div
+        class="jodit-jodit__workplace-slot_center_true"
+        contenteditable="false"
+        style="min-height: 198px;"
       >
         <div
-          aria-disabled="true"
-          class="jodit-wysiwyg"
-          spellcheck="false"
-          style="min-height: 198px;"
+          class="jodit-jodit__workplace-slot_left_true"
+          contenteditable="false"
+        />
+        <div
+          class="jodit-workplace"
+          contenteditable="false"
+          style="min-height: 198px; height: auto;"
           tabindex="-1"
         >
-          <p>
-            Hello, world!
-          </p>
+          <div
+            aria-disabled="true"
+            class="jodit-wysiwyg"
+            spellcheck="false"
+            style="min-height: 198px;"
+            tabindex="-1"
+          >
+            <p>
+              Hello, world!
+            </p>
+          </div>
+          <div
+            class="jodit-source"
+          >
+            <textarea
+              class="jodit-source__mirror"
+              readonly="true"
+            />
+          </div>
         </div>
         <div
-          class="jodit-source"
-        >
-          <textarea
-            class="jodit-source__mirror"
-            readonly="true"
-            style="min-height: 198px;"
-          />
-        </div>
+          class="jodit-jodit__workplace-slot_right_true"
+          contenteditable="false"
+        />
       </div>
+      <div
+        class="jodit-jodit__workplace-slot_bottom_true"
+        contenteditable="false"
+      />
       <div
         class="jodit-status-bar"
       >
@@ -710,7 +738,7 @@ exports[`Smoke Test Config should render without crashing 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Smoke Test should render without crashing 1`] = `
+exports[`Smoke Test > should render without crashing 1`] = `
 <DocumentFragment>
   <div
     class="jodit-react-container"
@@ -718,7 +746,7 @@ exports[`Smoke Test should render without crashing 1`] = `
     <div
       class="jodit-container jodit jodit_theme_default jodit-wysiwyg_mode"
       contenteditable="false"
-      style="min-height: 200px; max-height: auto; min-width: 200px; max-width: 100%; height: auto; width: auto;"
+      style="min-height: 200px; min-width: 200px; max-width: 100%; height: auto; --jd-jodit-workplace-height: auto; width: auto;"
     >
       <div
         class="jodit-toolbar__box"
@@ -959,6 +987,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -1009,6 +1038,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -1068,6 +1098,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -1117,6 +1148,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -1164,6 +1196,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
               <span
@@ -1229,6 +1262,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -1282,6 +1316,7 @@ exports[`Smoke Test should render without crashing 1`] = `
                     />
                      
                   </svg>
+                   
                 </span>
               </span>
             </div>
@@ -1344,32 +1379,53 @@ exports[`Smoke Test should render without crashing 1`] = `
         </div>
       </div>
       <div
-        class="jodit-workplace"
+        class="jodit-jodit__workplace-slot_top_true"
         contenteditable="false"
-        style="min-height: 198px; height: auto;"
-        tabindex="-1"
+      />
+      <div
+        class="jodit-jodit__workplace-slot_center_true"
+        contenteditable="false"
+        style="min-height: 198px;"
       >
         <div
-          aria-disabled="false"
-          class="jodit-wysiwyg"
-          contenteditable="true"
-          spellcheck="false"
-          style="min-height: 198px;"
+          class="jodit-jodit__workplace-slot_left_true"
+          contenteditable="false"
+        />
+        <div
+          class="jodit-workplace"
+          contenteditable="false"
+          style="min-height: 198px; height: auto;"
           tabindex="-1"
         >
-          <p>
-            Hello, world!
-          </p>
+          <div
+            aria-disabled="false"
+            class="jodit-wysiwyg"
+            contenteditable="true"
+            spellcheck="false"
+            style="min-height: 198px;"
+            tabindex="-1"
+          >
+            <p>
+              Hello, world!
+            </p>
+          </div>
+          <div
+            class="jodit-source"
+          >
+            <textarea
+              class="jodit-source__mirror"
+            />
+          </div>
         </div>
         <div
-          class="jodit-source"
-        >
-          <textarea
-            class="jodit-source__mirror"
-            style="min-height: 198px;"
-          />
-        </div>
+          class="jodit-jodit__workplace-slot_right_true"
+          contenteditable="false"
+        />
       </div>
+      <div
+        class="jodit-jodit__workplace-slot_bottom_true"
+        contenteditable="false"
+      />
       <div
         class="jodit-status-bar"
       >

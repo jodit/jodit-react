@@ -1,7 +1,6 @@
 import React from 'react';
-import { describe, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { describe, it, expect } from 'vitest';
 import JoditEditor from '../src';
 
 describe('Theme Test', () => {

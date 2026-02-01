@@ -1,30 +1,31 @@
 import React from 'react';
-import { describe, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { describe, it, expect } from 'vitest';
 import JoditEditor from '../src';
 
 describe('Smoke Test', () => {
-	it('should render without crashing', () => {
-		const { asFragment, getByText } = render(
+	it('should render without crashing', async () => {
+		const { asFragment, findByText } = render(
 			<JoditEditor value={'<p>Hello, world!</p>'} />
 		);
-		expect(getByText('Hello, world!')).toBeInTheDocument();
+		const element = await findByText('Hello, world!');
+		expect(element).toBeTruthy();
 		expect(asFragment()).toMatchSnapshot();
 	});
 
 	describe('Config', () => {
-		it('should render without crashing', () => {
+		it('should render without crashing', async () => {
 			const config = {
 				readonly: true,
 				sourceEditor: 'ace',
 				disabled: true
 			};
 
-			const { asFragment, getByText } = render(
+			const { asFragment, findByText } = render(
 				<JoditEditor value={'<p>Hello, world!</p>'} config={config} />
 			);
-			expect(getByText('Hello, world!')).toBeInTheDocument();
+			const element = await findByText('Hello, world!');
+			expect(element).toBeTruthy();
 			expect(asFragment()).toMatchSnapshot();
 		});
 	});
