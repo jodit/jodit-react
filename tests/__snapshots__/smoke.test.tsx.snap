@@ -741,6 +741,9 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
         </div>
         <div
           class="jodit-status-bar__item"
+        />
+        <div
+          class="jodit-status-bar__item"
         >
           <div
             class="jodit-xpath"
@@ -1478,6 +1481,9 @@ exports[`Smoke Test > should render without crashing 1`] = `
             Words: 0
           </span>
         </div>
+        <div
+          class="jodit-status-bar__item"
+        />
         <div
           class="jodit-status-bar__item"
         >
