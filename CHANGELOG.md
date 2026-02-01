@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.3.3
+
+- fix: update formatting in README and .prettierrc.json for consistency
+
 ## 5.3.2
 
 - feat: enhance release workflow with lint, test, and build steps; add Next.js usage example in README
