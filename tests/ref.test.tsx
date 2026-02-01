@@ -22,7 +22,7 @@ describe('Ref Test', () => {
 			act(() => {
 				elm.rerender(<App />);
 			});
-			
+
 			await act(async () => {});
 
 			expect(ref.current?.isJodit).toBe(true);
