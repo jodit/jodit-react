@@ -5,10 +5,11 @@ import JoditEditor from '../src';
 
 describe('On change Test', () => {
 	describe('On init', () => {
-		it('should not call handler', () => {
+		it('should not call handler', async () => {
 			const onChange = vi.fn();
 			const value = '<p>Hello, World!</p>';
 			render(<JoditEditor value={value} onChange={onChange} />);
+			await new Promise(resolve => setTimeout(resolve, 0));
 			expect(onChange).toHaveBeenCalledTimes(0);
 		});
 	});
@@ -22,6 +23,7 @@ describe('On change Test', () => {
 			);
 			value = '<p>Hello!</p>';
 			stamp.rerender(<JoditEditor value={value} onChange={onChange} />);
+			await new Promise(resolve => setTimeout(resolve, 0));
 			expect(onChange).toHaveBeenCalledTimes(1);
 		});
 	});
