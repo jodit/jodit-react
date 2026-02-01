@@ -22,21 +22,23 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
             tab-index="-1"
           />
           <div
-            class="jodit-ui-group jodit-ui-group_line_true"
+            class="jodit-ui-group jodit-ui-group_line_true jodit-ui-group_size_middle"
           >
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font-style"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font-style jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Bold"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_bold jodit-ui-group__bold"
                 data-ref="bold"
+                disabled="disabled"
                 ref="bold"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -65,12 +67,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Italic"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_italic jodit-ui-group__italic"
                 data-ref="italic"
+                disabled="disabled"
                 ref="italic"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -99,12 +103,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Underline"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_underline jodit-ui-group__underline"
                 data-ref="underline"
+                disabled="disabled"
                 ref="underline"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -133,12 +139,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Strike through"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_strikethrough jodit-ui-group__strikethrough"
                 data-ref="strikethrough"
+                disabled="disabled"
                 ref="strikethrough"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -167,12 +175,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Clear Formatting"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_eraser jodit-ui-group__eraser"
                 data-ref="eraser"
+                disabled="disabled"
                 ref="eraser"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -199,18 +209,20 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               </span>
             </div>
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_list jodit-ui-group_before-spacer_true"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_list jodit-ui-group_before-spacer_true jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Insert Unordered List"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_ul jodit-toolbar-button_with-trigger_true jodit-ui-group__ul"
                 data-ref="ul"
+                disabled="disabled"
                 ref="ul"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -237,6 +249,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -256,12 +269,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Insert Ordered List"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_ol jodit-toolbar-button_with-trigger_true jodit-ui-group__ol"
                 data-ref="ol"
+                disabled="disabled"
                 ref="ol"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -288,6 +303,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -308,21 +324,23 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               class="jodit-ui-spacer"
             />
             <div
-              class="jodit-ui-group"
+              class="jodit-ui-group jodit-ui-group_size_middle"
             />
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Font family"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_font jodit-toolbar-button_with-trigger_true jodit-ui-group__font"
                 data-ref="font"
+                disabled="disabled"
                 ref="font"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -348,6 +366,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -367,12 +386,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Font size"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_fontsize jodit-toolbar-button_with-trigger_true jodit-ui-group__fontsize"
                 data-ref="fontsize"
+                disabled="disabled"
                 ref="fontsize"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -398,6 +419,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -417,12 +439,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Insert format block"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_paragraph jodit-toolbar-button_with-trigger_true jodit-ui-group__paragraph"
                 data-ref="paragraph"
+                disabled="disabled"
                 ref="paragraph"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -446,6 +470,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -465,12 +490,14 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 aria-label="Line height"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_lineHeight jodit-toolbar-button_with-trigger_true jodit-ui-group__lineHeight"
                 data-ref="lineHeight"
+                disabled="disabled"
                 ref="lineHeight"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -512,6 +539,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -529,18 +557,20 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               </span>
             </div>
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_color jodit-ui-group_before-spacer_true"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_color jodit-ui-group_before-spacer_true jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Fill color or set the text color"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_brush jodit-toolbar-button_with-trigger_true jodit-ui-group__brush"
                 data-ref="brush"
+                disabled="disabled"
                 ref="brush"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -566,6 +596,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                 </button>
                 <span
                   class="jodit-toolbar-button__trigger"
+                  disabled="disabled"
                   role="trigger"
                 >
                   <svg
@@ -586,18 +617,20 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               class="jodit-ui-spacer"
             />
             <div
-              class="jodit-ui-group"
+              class="jodit-ui-group jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Show all"
                 class="jodit-toolbar-button jodit-toolbar-button_size_middle jodit-toolbar-button_variant_initial jodit-toolbar-button_dots jodit-ui-group__dots"
                 data-ref="dots"
+                disabled="disabled"
                 ref="dots"
                 role="listitem"
               >
                 <button
                   aria-pressed="false"
                   class="jodit-toolbar-button__button"
+                  disabled="disabled"
                   role="button"
                   tabindex="-1"
                   type="button"
@@ -676,6 +709,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
             <textarea
               class="jodit-source__mirror"
               readonly="true"
+              style="height: 0px; min-height: 198px;"
             />
           </div>
         </div>
@@ -760,10 +794,10 @@ exports[`Smoke Test > should render without crashing 1`] = `
             tab-index="-1"
           />
           <div
-            class="jodit-ui-group jodit-ui-group_line_true"
+            class="jodit-ui-group jodit-ui-group_line_true jodit-ui-group_size_middle"
           >
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font-style"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font-style jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Bold"
@@ -937,7 +971,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
               </span>
             </div>
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_list jodit-ui-group_before-spacer_true"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_list jodit-ui-group_before-spacer_true jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Insert Unordered List"
@@ -1046,10 +1080,10 @@ exports[`Smoke Test > should render without crashing 1`] = `
               class="jodit-ui-spacer"
             />
             <div
-              class="jodit-ui-group"
+              class="jodit-ui-group jodit-ui-group_size_middle"
             />
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_font jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Font family"
@@ -1267,7 +1301,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
               </span>
             </div>
             <div
-              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_color jodit-ui-group_before-spacer_true"
+              class="jodit-ui-group jodit-ui-group_separated_true jodit-ui-group_group_color jodit-ui-group_before-spacer_true jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Fill color or set the text color"
@@ -1324,7 +1358,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
               class="jodit-ui-spacer"
             />
             <div
-              class="jodit-ui-group"
+              class="jodit-ui-group jodit-ui-group_size_middle"
             >
               <span
                 aria-label="Show all"
@@ -1414,6 +1448,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
           >
             <textarea
               class="jodit-source__mirror"
+              style="height: 0px; min-height: 198px;"
             />
           </div>
         </div>

@@ -40,7 +40,6 @@ describe('Smoke Test', () => {
 			});
 
 			await editor!.waitForReady();
-			await new Promise(resolve => setTimeout(resolve, 100));
 			const element = await findByText('Hello, world!');
 			expect(element).toBeTruthy();
 			expect(asFragment()).toMatchSnapshot();
