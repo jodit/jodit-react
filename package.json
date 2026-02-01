@@ -1,6 +1,6 @@
 {
   "name": "jodit-react",
-  "version": "5.3.5",
+  "version": "5.3.6",
   "description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
   "main": "build/jodit-react.js",
   "module": "./build/esm/index.mjs",
@@ -33,7 +33,7 @@
     "rte"
   ],
   "dependencies": {
-    "jodit": "^4.8.4"
+    "jodit": "^4.8.5"
   },
   "peerDependencies": {
     "react": "~0.14 || ^15 || ^16 || ^17 || ^18 || ^19",
