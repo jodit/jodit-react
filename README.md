@@ -42,26 +42,27 @@ import React, { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
 const Example = ({ placeholder }) => {
-	const editor = useRef(null);
-	const [content, setContent] = useState('');
+  const editor = useRef(null);
+  const [content, setContent] = useState('');
 
-	const config = useMemo(() => ({
-			readonly: false, // all options from https://xdsoft.net/jodit/docs/,
-			placeholder: placeholder || 'Start typings...'
-		}),
-		[placeholder]
-	);
+  const config = useMemo(
+    () => ({
+      readonly: false, // all options from https://xdsoft.net/jodit/docs/,
+      placeholder: placeholder || 'Start typings...'
+    }),
+    [placeholder]
+  );
 
-	return (
-		<JoditEditor
-			ref={editor}
-			value={content}
-			config={config}
-			tabIndex={1} // tabIndex of textarea
-			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-			onChange={newContent => {}}
-		/>
-	);
+  return (
+    <JoditEditor
+      ref={editor}
+      value={content}
+      config={config}
+      tabIndex={1} // tabIndex of textarea
+      onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+      onChange={newContent => {}}
+    />
+  );
 };
 ```
 
@@ -76,21 +77,21 @@ import JoditEditor, { Jodit } from 'jodit-react';
  * @param {Jodit} jodit
  */
 function preparePaste(jodit) {
-	jodit.e.on(
-		'paste',
-		e => {
-			if (confirm('Change pasted content?')) {
-				jodit.e.stopPropagation('paste');
-				jodit.s.insertHTML(
-					Jodit.modules.Helpers.getDataTransfer(e)
-						.getData(Jodit.constants.TEXT_HTML)
-						.replace(/a/g, 'b')
-				);
-				return false;
-			}
-		},
-		{ top: true }
-	);
+  jodit.e.on(
+    'paste',
+    e => {
+      if (confirm('Change pasted content?')) {
+        jodit.e.stopPropagation('paste');
+        jodit.s.insertHTML(
+          Jodit.modules.Helpers.getDataTransfer(e)
+            .getData(Jodit.constants.TEXT_HTML)
+            .replace(/a/g, 'b')
+        );
+        return false;
+      }
+    },
+    { top: true }
+  );
 }
 Jodit.plugins.add('preparePaste', preparePaste);
 
@@ -107,14 +108,13 @@ You can connect any Jodit constructor and set it as the `JoditConstructor` prope
 ```jsx
 import React from 'react';
 import JoditEditor from 'jodit-react';
-import {Jodit} from 'jodit-pro';
+import { Jodit } from 'jodit-pro';
 import 'jodit-pro/es5/jodit.min.css';
 // ...
 
 function App() {
   return <JoditEditor JoditConstructor={Jodit} />;
 }
-
 ```
 
 ### Import and use Jodit-react inside your Next.js application
@@ -123,9 +123,8 @@ function App() {
 import dynamic from 'next/dynamic';
 
 const JoditEditor = dynamic(() => import('jodit-react'), {
-  ssr: false,
+  ssr: false
 });
-
 ```
 
 ## License

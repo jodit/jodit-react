@@ -5,5 +5,14 @@
 	"semi": true,
 	"singleQuote": true,
 	"endOfLine": "lf",
-	"arrowParens": "avoid"
+	"arrowParens": "avoid",
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
 }
