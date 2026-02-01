@@ -117,6 +117,16 @@ function App() {
 
 ```
 
+### Import and use Jodit-react inside your Next.js application
+
+```js
+import dynamic from 'next/dynamic';
+
+const JoditEditor = dynamic(() => import('jodit-react'), {
+  ssr: false,
+});
+
+```
 
 ## License
 

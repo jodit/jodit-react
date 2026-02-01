@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.3.2
+
+- feat: enhance release workflow with lint, test, and build steps; add Next.js usage example in README
+
 ## 5.3.1
 
 - feat: update package.json for module exports and types, add esm build
