@@ -3,6 +3,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
 	test: {
 		environment: 'jsdom', // для React
-		globals: true // если хочешь describe/it без импорта
+		globals: true, // если хочешь describe/it без импорта
+		setupFiles: ['./tests/vitest.setup.ts']
 	}
 });
