@@ -114,7 +114,7 @@ jobs:
                   echo "EOF" >> $GITHUB_OUTPUT
 
             - name: Release
-              uses: softprops/action-gh-release@v2
+              uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65  # v2
               with:
                   tag_name: ${{ steps.get_version.outputs.version }}
                   name: ${{ steps.get_version.outputs.version }}
