@@ -4,6 +4,16 @@ import { describe, it, expect, vi } from 'vitest';
 import JoditEditor from '../src';
 import type { IJodit } from 'jodit/esm/types/jodit';
 
+function stabilizeFragment(fragment: DocumentFragment): DocumentFragment {
+	const clone = fragment.cloneNode(true) as DocumentFragment;
+	clone
+		.querySelectorAll('[name^="jodit-toolbar-focus-helper_"]')
+		.forEach(el => {
+			el.setAttribute('name', 'jodit-toolbar-focus-helper_[id]');
+		});
+	return clone;
+}
+
 describe('Smoke Test', () => {
 	it('should render without crashing', async () => {
 		const { asFragment, findByText } = render(
@@ -12,7 +22,7 @@ describe('Smoke Test', () => {
 		await act(async () => {});
 		const element = await findByText('Hello, world!');
 		expect(element).toBeTruthy();
-		expect(asFragment()).toMatchSnapshot();
+		expect(stabilizeFragment(asFragment())).toMatchSnapshot();
 	});
 
 	describe('Config', () => {
@@ -42,7 +52,7 @@ describe('Smoke Test', () => {
 			await editor!.waitForReady();
 			const element = await findByText('Hello, world!');
 			expect(element).toBeTruthy();
-			expect(asFragment()).toMatchSnapshot();
+			expect(stabilizeFragment(asFragment())).toMatchSnapshot();
 		});
 	});
 });
