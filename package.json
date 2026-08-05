@@ -82,7 +82,7 @@
 		"vitest": "^4.0.18",
 		"webpack": "^5.104.1",
 		"webpack-cli": "^6.0.1",
-		"webpack-dev-server": "^5.2.3"
+		"webpack-dev-server": "^6.0.0"
 	},
 	"scripts": {
 		"newversion": "npm version patch --no-git-tag-version && npm run github",
