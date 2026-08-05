@@ -2,7 +2,7 @@
 	"name": "jodit-react",
 	"version": "5.4.66",
 	"description": "Jodit is awesome and usefully wysiwyg editor with filebrowser",
-	"main": "build/jodit-react.js",
+	"main": "build/react-jodit.js",
 	"module": "./build/esm/index.mjs",
 	"types": "./build/types/index.d.ts",
 	"exports": {
