@@ -58,6 +58,17 @@ const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 				editorRef(jodit);
 			}
 
+			// Keep the forwarded ref pointing at the live instance:
+			// when the editor is recreated (e.g. a new `config` identity),
+			// a stale ref would silently swallow all method calls (#301)
+			if (ref) {
+				if (typeof ref === 'function') {
+					ref(jodit);
+				} else {
+					ref.current = jodit;
+				}
+			}
+
 			return () => {
 				if (jodit.isReady) {
 					jodit.destruct();
@@ -67,17 +78,12 @@ const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 						.then(joditInstance => joditInstance.destruct());
 				}
 			};
+			// `ref` is intentionally omitted: react guarantees a stable
+			// identity for ref objects, and recreating the editor because
+			// the consumer passed an inline ref callback would be worse
+			// than a late ref update
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [JoditConstructor, config, editorRef]);
-
-		useEffect(() => {
-			if (ref) {
-				if (typeof ref === 'function') {
-					ref(joditRef.current);
-				} else {
-					ref.current = joditRef.current;
-				}
-			}
-		}, [textAreaRef, ref, joditRef]);
 
 		const preClassName = usePrevious(className ?? '');
 

@@ -9,6 +9,12 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.4.63
+
+- fix: forwarded `ref` kept pointing at the destructed editor instance after the editor was recreated (e.g. when `config` is passed as an inline object), so methods called through the ref silently did nothing (#301). The ref is now (re)assigned in the same effect that creates the editor.
+- chore: update `jodit` to 4.13.12
+- chore: merged community fix for outdated smoke-test snapshots (#334, #335), 9 dependabot lockfile bumps
+
 ## 5.3.3
 
 - fix: update formatting in README and .prettierrc.json for consistency
