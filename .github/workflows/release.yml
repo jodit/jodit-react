@@ -96,6 +96,10 @@ jobs:
                   name: build
                   path: build/
 
+            # OIDC trusted publishing needs npm >= 11.5.1; Node 22 ships npm 10.x
+            - name: Update npm for OIDC
+              run: npm install -g npm@latest
+
             - name: Publish
               run: npm publish ./ --access public
 
