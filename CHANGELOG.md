@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.4.80
+
+- fix: a stale `value` echo no longer overwrites the editor. When the parent feeds `onChange` back into `value` and a render lands late (slow tree, Next.js dev mode), the wrapper used to write the older snapshot back into the editor, replacing the DOM and throwing the caret to the start of the content (#217). The wrapper now remembers the values the editor itself reported and ignores them when they come back through `value`; a value the parent sets on its own is still applied.
+
 ## 5.4.63
 
 - fix: forwarded `ref` kept pointing at the destructed editor instance after the editor was recreated (e.g. when `config` is passed as an inline object), so methods called through the ref silently did nothing (#301). The ref is now (re)assigned in the same effect that creates the editor.

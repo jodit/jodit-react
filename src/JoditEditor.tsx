@@ -5,6 +5,8 @@ import type { Config } from 'jodit/esm/config';
 import { Jodit } from './include.jodit';
 import type { DeepPartial } from 'jodit/esm/types';
 
+const MAX_TRACKED_EMITTED_VALUES = 20;
+
 function usePrevious(value: string): string {
 	const ref = useRef<string>('');
 	useEffect(() => {
@@ -48,6 +50,13 @@ const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 	) => {
 		const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 		const joditRef = useRef<IJodit | null>(null);
+
+		// Values the editor itself reported through `change` and that the
+		// parent may echo back through the `value` prop. When a render
+		// lags behind typing, the echoed prop is an older snapshot than
+		// the editor content; writing it back would replace the DOM and
+		// throw the caret to the start of the editor (#217)
+		const emittedValuesRef = useRef<string[]>([]);
 
 		useEffect(() => {
 			const element = textAreaRef.current!;
@@ -116,15 +125,27 @@ const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 
 		useEffect(() => {
 			const jodit = joditRef.current;
-			if (!jodit?.events || !(onBlur || onChange)) {
+			if (!jodit?.events) {
 				return;
 			}
 
 			const onBlurHandler = (event: MouseEvent) =>
 				onBlur && onBlur(joditRef?.current?.value ?? '', event);
 
-			const onChangeHandler = (value: string) =>
-				onChange && onChange(value);
+			const onChangeHandler = (value: string) => {
+				const emitted = emittedValuesRef.current;
+				emitted.push(value);
+				if (emitted.length > MAX_TRACKED_EMITTED_VALUES) {
+					emitted.splice(
+						0,
+						emitted.length - MAX_TRACKED_EMITTED_VALUES
+					);
+				}
+
+				if (onChange) {
+					onChange(value);
+				}
+			};
 
 			// adding event handlers
 			jodit.events
@@ -143,7 +164,23 @@ const JoditEditor = forwardRef<IJodit, JoditEditorProps>(
 			const jodit = joditRef.current;
 
 			const updateValue = () => {
-				if (jodit && value !== undefined && jodit.value !== value) {
+				if (!jodit || value === undefined) {
+					return;
+				}
+
+				const emitted = emittedValuesRef.current;
+				const echoIndex = emitted.indexOf(value);
+
+				if (echoIndex !== -1) {
+					// The parent handed back something the editor reported
+					// itself: either the current content or a stale
+					// snapshot. Neither must be written back into the DOM
+					emitted.splice(0, echoIndex + 1);
+					return;
+				}
+
+				if (jodit.value !== value) {
+					emitted.length = 0;
 					jodit.value = value;
 				}
 			};
