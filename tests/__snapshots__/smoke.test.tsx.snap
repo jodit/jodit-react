@@ -270,6 +270,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -328,6 +329,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -397,6 +399,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -454,6 +457,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -509,6 +513,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -582,6 +587,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -644,6 +650,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
                   class="jodit-toolbar-button__trigger"
                   disabled="disabled"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1138,6 +1145,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Insert Unordered List"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1193,6 +1201,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Insert Ordered List"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1259,6 +1268,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Font family"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1313,6 +1323,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Font size"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1365,6 +1376,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Insert format block"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1435,6 +1447,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Line height"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"
@@ -1494,6 +1507,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
                   aria-label="Fill color or set the text color"
                   class="jodit-toolbar-button__trigger"
                   role="button"
+                  tabindex="-1"
                 >
                   <svg
                     viewBox="0 0 10 10"

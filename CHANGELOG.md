@@ -12,6 +12,7 @@
 ## 5.4.80
 
 - fix: a stale `value` echo no longer overwrites the editor. When the parent feeds `onChange` back into `value` and a render lands late (slow tree, Next.js dev mode), the wrapper used to write the older snapshot back into the editor, replacing the DOM and throwing the caret to the start of the content (#217). The wrapper now remembers the values the editor itself reported and ignores them when they come back through `value`; a value the parent sets on its own is still applied.
+- test: refreshed the smoke snapshots for the `tabindex="-1"` that jodit 4.13.2x puts on toolbar buttons. The stale snapshots had been failing the publish workflow, so 5.4.73–5.4.79 were tagged but never reached npm; this is the first published build since 5.4.72 and ships jodit ^4.13.25.
 
 ## 5.4.63
 
