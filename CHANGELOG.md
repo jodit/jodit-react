@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.5.0
+
+- chore: minor bump for jodit 4.14.0 (DOM access routed through the `Dom` module, new `cssInline`/`attrRaw` helpers). No wrapper changes; the first published 5.5.x build is produced by the release bot on the next core release.
+
 ## 5.4.80
 
 - fix: a stale `value` echo no longer overwrites the editor. When the parent feeds `onChange` back into `value` and a render lands late (slow tree, Next.js dev mode), the wrapper used to write the older snapshot back into the editor, replacing the DOM and throwing the caret to the start of the content (#217). The wrapper now remembers the values the editor itself reported and ignores them when they come back through `value`; a value the parent sets on its own is still applied.
