@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # npm dependencies, one PR per week for all of them.
+  # npm dependencies, one PR per week for all of them (version and security updates grouped separately).
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
