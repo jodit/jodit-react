@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # npm dependencies, one PR per week for all of them.
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 10
+    labels:
+      - 'dependencies'
+    groups:
+      npm:
+        applies-to: version-updates
+        patterns:
+          - '*'
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - '*'
