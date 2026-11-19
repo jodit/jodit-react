@@ -246,7 +246,6 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Clear Formatting"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   disabled="disabled"
                   role="button"
@@ -745,7 +744,6 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Line height"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   disabled="disabled"
                   role="button"
@@ -839,7 +837,6 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Fill color or set the text color"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   disabled="disabled"
                   role="button"
@@ -941,7 +938,6 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Show all"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   disabled="disabled"
                   role="button"
@@ -1018,7 +1014,7 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
         >
           <div
             aria-disabled="true"
-            class="jodit-wysiwyg"
+            class="jodit-wysiwyg jodit-wysiwyg_anchors"
             spellcheck="false"
             style="min-height: 198px;"
             tabindex="-1"
@@ -1082,7 +1078,6 @@ exports[`Smoke Test > Config > should render without crashing 1`] = `
             >
               <button
                 aria-label="Select all"
-                aria-pressed="false"
                 class="jodit-toolbar-button__button"
                 role="button"
                 tabindex="-1"
@@ -1394,7 +1389,6 @@ exports[`Smoke Test > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Clear Formatting"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   role="button"
                   tabindex="-1"
@@ -1876,7 +1870,6 @@ exports[`Smoke Test > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Line height"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   role="button"
                   tabindex="-1"
@@ -1967,7 +1960,6 @@ exports[`Smoke Test > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Fill color or set the text color"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   role="button"
                   tabindex="-1"
@@ -2066,7 +2058,6 @@ exports[`Smoke Test > should render without crashing 1`] = `
               >
                 <button
                   aria-label="Show all"
-                  aria-pressed="false"
                   class="jodit-toolbar-button__button"
                   role="button"
                   tabindex="-1"
@@ -2142,7 +2133,7 @@ exports[`Smoke Test > should render without crashing 1`] = `
         >
           <div
             aria-disabled="false"
-            class="jodit-wysiwyg"
+            class="jodit-wysiwyg jodit-wysiwyg_anchors"
             contenteditable="true"
             spellcheck="false"
             style="min-height: 198px;"
@@ -2206,7 +2197,6 @@ exports[`Smoke Test > should render without crashing 1`] = `
             >
               <button
                 aria-label="Select all"
-                aria-pressed="false"
                 class="jodit-toolbar-button__button"
                 role="button"
                 tabindex="-1"

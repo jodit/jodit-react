@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.10.4
+
+- Update Jodit to 4.20.4, restoring the speech recognition toolbar icon, and refresh smoke snapshots for the current core markup.
+
 ## 5.5.0
 
 - chore: minor bump for jodit 4.14.0 (DOM access routed through the `Dom` module, new `cssInline`/`attrRaw` helpers). No wrapper changes; the first published 5.5.x build is produced by the release bot on the next core release.

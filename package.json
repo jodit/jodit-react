@@ -43,7 +43,7 @@
 		"rte"
 	],
 	"dependencies": {
-		"jodit": "^4.20.3"
+		"jodit": "^4.20.4"
 	},
 	"peerDependencies": {
 		"react": "~0.14 || ^15 || ^16 || ^17 || ^18 || ^19",
