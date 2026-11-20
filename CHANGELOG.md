@@ -9,6 +9,10 @@
 > -   :house: [Internal]
 > -   :nail_care: [Polish]
 
+## 5.11.0
+
+- Align with Jodit 4.21.0: horizontal-rule selection and popup, configurable clean-paste attributes, preserved link classes and configurable special-character columns; follow the core migration notes for changed horizontal-rule behavior and browser support.
+
 ## 5.10.4
 
 - Update Jodit to 4.20.4, restoring the speech recognition toolbar icon, and refresh smoke snapshots for the current core markup.
