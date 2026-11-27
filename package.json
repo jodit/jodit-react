@@ -111,7 +111,7 @@
 	"bugs": {
 		"url": "https://github.com/jodit/jodit-react/issues"
 	},
-	"homepage": "https://xdsoft.net/jodit/",
+	"homepage": "https://xdsoft.net/jodit/integrations/react/",
 	"ava": {
 		"extensions": [
 			"ts",
