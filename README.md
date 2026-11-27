@@ -14,6 +14,8 @@ React wrapper for [Jodit](https://xdsoft.net/jodit/)
 npm install jodit-react --save
 ```
 
+See the [React integration guide](https://xdsoft.net/jodit/integrations/react/) for component props, toolbar configuration and TypeScript examples.
+
 ## Update editor version
 
 ```bash
